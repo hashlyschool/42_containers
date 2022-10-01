@@ -1,7 +1,7 @@
 /*!
  * @file main.cpp
  * @author hashly (ilya12-141998@mail.ru)
- * @brief
+ * @brief file for testing custom containers
  * @version 1.0
  * @date 2022-10-01
  *
@@ -29,6 +29,11 @@ void	testingStack()
 	// std::cout << "MyStack = " << myStack.top() << "\n";
 }
 
+/*!
+ * @brief main function for testing custom containers
+ *
+ * @return int
+ */
 int	main()
 {
 	testingStack();
