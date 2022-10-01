@@ -5,8 +5,7 @@ var indexSectionsWithContent =
   2: "f",
   3: "s",
   4: "os",
-  5: "_",
-  6: "s"
+  5: "_"
 };
 
 var indexSectionNames =
@@ -16,8 +15,7 @@ var indexSectionNames =
   2: "namespaces",
   3: "files",
   4: "functions",
-  5: "variables",
-  6: "pages"
+  5: "variables"
 };
 
 var indexSectionLabels =
@@ -27,7 +25,6 @@ var indexSectionLabels =
   2: "Пространства имен",
   3: "Файлы",
   4: "Функции",
-  5: "Переменные",
-  6: "Страницы"
+  5: "Переменные"
 };
 

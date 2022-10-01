@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>42_containers: Subject &lt;tt&gt;ft_containers&lt;/tt&gt;</title>
+<title>42_containers: Титульная страница</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,144 +69,11 @@ $(function() {
 </iframe>
 </div>
 
-<div class="PageDoc"><div class="header">
+<div class="header">
   <div class="headertitle">
-<div class="title">Subject <code>ft_containers</code> </div>  </div>
+<div class="title">42_containers Документация</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_MainPage"></a> C++ containers, easy mode</p>
-<p>Summary: The standard C++ containers have all a specific usage. To make sure you understand them, let’s re-implement them!</p>
-<p>Version: 4</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Contents</h1>
-<h2><a class="anchor" id="autotoc_md2"></a>
-Содержание</h2>
-<ol type="1">
-<li><a href="#Задачи">Задачи</a></li>
-<li><a href="#Общие-инструкции">Общие инструкции</a></li>
-<li><a href="#Обязательная-часть">Обязательная часть</a></li>
-<li><a href="#Бонусная-часть">Бонусная часть</a></li>
-<li><a href="#Защита-работы">Защита работы</a></li>
-<li><a href="#Ресурсы-для-подготовки">Ресурсы для подготовки</a></li>
-</ol>
-<h1><a class="anchor" id="autotoc_md3"></a>
-Глава I</h1>
-<h2><a class="anchor" id="autotoc_md4"></a>
-Задачи</h2>
-<p>В этом проекте вы реализуете несколько типов контейнеров из стандартной библиотеки шаблонов C++.</p>
-<p>Вы должны взять структуру каждого стандартного контейнера в качестве эталона. Если часть <code>Orthodox Canonical form</code> отсутствует, не внедряйте ее.</p>
-<p>Напоминаем, что вы должны соответствовать стандарту C++98, поэтому любые более поздние функции контейнеров НЕ ДОЛЖНЫ быть реализованы, но ожидается каждая функция C++98 (даже устаревшая).</p>
-<h1><a class="anchor" id="autotoc_md5"></a>
-Глава II</h1>
-<h2><a class="anchor" id="autotoc_md6"></a>
-Общие инструкции</h2>
-<p><b>Компиляция</b></p>
-<ul>
-<li>Скомпилируйте свой код с помощью компилятора <code>c++</code> и флагов <code>-Wall -Wextra -Werror</code></li>
-<li>Ваш код все равно должен компилироваться, если вы добавите флаг <code>-std=c++98</code></li>
-</ul>
-<p><b>Соглашения о форматировании и именовании</b></p>
-<ul>
-<li>Для каждого контейнера сдайте файлы классов с соответствующими именами</li>
-<li>До свидания, Норминетт! Никакой стиль кодирования не применяется. Вы можете следовать своему любимому. Но имейте в виду, что код, который ваши коллеги-оценщики не могут понять, — это код, который они не могут оценить. Приложите все усилия, чтобы написать чистый и читаемый код</li>
-</ul>
-<p><b>Разрешено/Запрещено</b></p>
-<p>Вы больше не программируете на C. Время С++! Следовательно:</p>
-<ul>
-<li>Вам разрешено использовать все из стандартной библиотеки. Таким образом, вместо того, чтобы придерживаться того, что вы уже знаете, было бы разумно использовать как можно больше <code>C++</code> версий функций C, к которым вы привыкли</li>
-<li>Однако вы не можете использовать никакую другую внешнюю библиотеку. Это означает, что <code>с++11</code> (и производные формы) и библиотеки Boost запрещены. Также запрещены следующие функции: <code>*printf()</code>, <code>*alloc()</code> и <code>free()</code>. Если вы их используете, ваша оценка будет 0 и все.</li>
-</ul>
-<p><b>Несколько требований к оформлению</b></p><ul>
-<li>Утечка памяти происходит и в C++. Когда вы выделяете память, вы должны избегать утечек памяти</li>
-<li>Любая реализация функции, помещенная в заголовочный файл (кроме шаблонов функций), означает 0 для упражнения</li>
-<li>Вы должны иметь возможность использовать каждый из ваших заголовков независимо от других. Таким образом, они должны включать все необходимые им зависимости. Однако вы должны избежать проблемы двойного включения, добавив защиту включения. В противном случае ваша оценка будет 0</li>
-</ul>
-<p><b>Прочти меня</b></p><ul>
-<li>Вы можете добавить некоторые дополнительные файлы, если вам нужно (т. е. разделить код) и организовать свою работу по своему усмотрению, пока вы сдаете обязательные файлы.</li>
-<li>Во имя Одина, во имя Тора! Используйте свой мозг!!!</li>
-</ul>
-<blockquote class="doxtable">
-<p>Поскольку ваша задача здесь — перекодировать контейнеры STL, вы, конечно, не можете использовать их для реализации своих. </p>
-</blockquote>
-<h1><a class="anchor" id="autotoc_md7"></a>
-Глава III</h1>
-<h2><a class="anchor" id="autotoc_md8"></a>
-Обязательная часть</h2>
-<p>Реализуйте следующие контейнеры и включите необходимые файлы <code>&lt;container&gt;</code>.hpp:</p>
-<ul>
-<li>vector</li>
-</ul>
-<p><em>Вам не нужно делать специализацию <code>vector&lt;bool&gt;</code></em></p><ul>
-<li>map</li>
-<li>stack</li>
-</ul>
-<p><em>Он будет использовать ваш векторный класс в качестве базового контейнера по умолчанию. Но он по-прежнему должен быть совместим с другими контейнерами, включая STL.</em> </p><pre class="fragment">Вы можете пройти это задание без стека (80/100). Но если вы хотите сделать бонусную часть, вам нужно реализовать 3 обязательных контейнера: vector, map и stack.
-</pre><p> Вы также должны реализовать:</p><ul>
-<li>iterators_traits</li>
-<li>reverse_iterator</li>
-<li><p class="startli">enable_if</p>
-<p class="startli">Да, это C++11, но вы сможете реализовать его на C++98. Это задано, чтобы вы могли открыть для себя SFINAE.</p>
-</li>
-<li>is_integral</li>
-<li>equal and/or lexicographical_compare</li>
-<li>std::pair</li>
-<li>std::make_pair</li>
-</ul>
-<h3><a class="anchor" id="autotoc_md9"></a>
-Требования</h3>
-<ul>
-<li>Пространство имен должно быть <code>ft</code></li>
-<li>Каждая внутренняя структура данных, используемая в ваших контейнерах, должна быть логичной и обоснованной (это означает, что использование простого массива для <code>map</code> не является нормальным)</li>
-<li>Вы не можете реализовывать больше публичных функций, чем предлагается в стандартных контейнерах. Все остальное должно быть частным или защищенным. Каждая публичная функция или переменная должны быть обоснованы</li>
-<li>Ожидаются все функции-члены, функции, не являющиеся членами, и перегрузки стандартных контейнеров.</li>
-<li>Вы должны следовать исходному именованию. Позаботьтесь о деталях</li>
-<li>Если в контейнере есть система итераторов, вы должны реализовать ее</li>
-<li>Вы должны использовать <code>std::allocator</code></li>
-<li>Для перегрузок, не являющихся членами, разрешено ключевое слово <code>friend</code> Каждое использование друга должно быть обосновано и будет проверено во время оценки</li>
-<li>Конечно, для реализации <code>map::value_compare</code> разрешено ключевое слово <code>friend</code></li>
-</ul>
-<blockquote class="doxtable">
-<p>Вы можете использовать <a href="https://www.cplusplus.com/">https://www.cplusplus.com/</a> и <a href="https://cppreference.com/">https://cppreference.com/</a> в качестве ресурсов. </p>
-</blockquote>
-<h3><a class="anchor" id="autotoc_md10"></a>
-Тестирование</h3>
-<ul>
-<li>Вы также должны предоставить тесты, по крайней мере, <code>main.cpp</code>, для вашей защиты. Вы должны пойти дальше, чем <code>main</code>, приведенный в качестве примера!</li>
-<li>Вы должны создать два двоичных файла, которые запускают одни и те же тесты: один только с вашими контейнерами, а другой с контейнерами STL.</li>
-<li>Сравните <em>результаты</em> и <em>производительность/время</em> (ваши контейнеры могут быть в 20 раз медленнее)</li>
-<li>Протестируйте свои контейнеры с помощью: <code>ft::&lt;container&gt;</code></li>
-</ul>
-<blockquote class="doxtable">
-<p>Файл main.cpp доступен для скачивания на странице проекта в интранете. </p>
-</blockquote>
-<h1><a class="anchor" id="autotoc_md11"></a>
-Глава IV</h1>
-<h2><a class="anchor" id="autotoc_md12"></a>
-Бонусная часть</h2>
-<p>Вы получите дополнительные баллы, если реализуете последний контейнер:</p>
-<p><b>set</b></p>
-<p>Но в этот раз, a Red-Black tree обязательно</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1FDHW5ZVPwiNK886T66iGU1Fwz__rji6J" alt="1" title="Красно-черное дерево" class="inline"/> </p><pre class="fragment">Бонусная часть будет оцениваться только в том случае, если обязательная часть будет ИДЕАЛЬНОЙ. Идеальный означает, что обязательная часть была полностью выполнена и работает без сбоев. Если вы не выполнили ВСЕ обязательные требования, ваша бонусная часть вообще не будет оцениваться.
-</pre> <h1><a class="anchor" id="autotoc_md13"></a>
-Глава V</h1>
-<h2><a class="anchor" id="autotoc_md14"></a>
-Защита работы</h2>
-<p>Сдайте задание в своем репозитории Git, как обычно. Во время защиты будет оцениваться только работа внутри вашего репозитория. Не стесняйтесь перепроверять имена ваших файлов, чтобы убедиться, что они верны.</p>
-<h1><a class="anchor" id="autotoc_md15"></a>
-Глава VI</h1>
-<h2><a class="anchor" id="autotoc_md16"></a>
-Ресурсы для подготовки</h2>
-<ul>
-<li><a href="https://www.cplusplus.com/">cplusplus.com</a></li>
-<li><a href="https://adrienblanc.com/projects/42/ft-containers">С++ | Структуры данных ft_containers</a></li>
-<li><a href="https://cppreference.com/">cppreference.com</a></li>
-<li><a href="http://www.cplusplus.com/reference/stl/">Containers</a></li>
-<li><a href="https://stackoverflow.com/a/4576380">Allocating without calling constructor</a></li>
-<li><a href="https://stackoverflow.com/a/47934594">Binary trees for Map</a></li>
-<li><a href="https://stackoverflow.com/questions/5733254/how-can-i-create-my-own-comparator-for-a-map">Map Comparator</a></li>
-<li><a href="https://en.cppreference.com/w/cpp/container/deque">Deque</a> </li>
-</ul>
-</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

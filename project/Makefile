@@ -5,10 +5,14 @@ CC				=	g++
 OPTFLAGS		=	-g -fsanitize=address
 FLAGS			=	-std=c++98 -Wall -Wextra -Werror -pedantic -MMD -MP
 
-#Main
+#Include file's
 INCS_FILES		=	Stack.hpp
 
+#Source file's
 SOURCE_FILES	=	main.cpp
+
+#Doxygen config file
+DOXYGEN_CONFIG	=	../docs/doxygenConf
 
 #Finish include
 INC_PATH		=	./inc/
@@ -25,7 +29,7 @@ OBJS			=	$(addprefix $(OBJS_PATH), $(SRCS_NAME:.cpp=.o))
 
 all: ${NAME}
 
-$(NAME): $(OBJS_PATH)$(OBJS)
+$(NAME): doxygen $(OBJS_PATH) $(OBJS)
 	@$(CC) $(FLAGS) $(OPTFLAGS) -I$(INC_PATH) $(LDFLAGS) $(OBJS) -o $(NAME)
 	@echo "built $(NAME) finish"
 
@@ -35,6 +39,10 @@ $(OBJS_PATH)%.o: $(SRCS_PATH)%.cpp $(INC)
 
 $(OBJS_PATH):
 	@mkdir -p ${OBJS_PATH}
+
+doxygen:
+	@doxygen $(DOXYGEN_CONFIG) 2> /dev/null 1> /dev/null
+	@echo "generate documentation with doxygen finish"
 
 clean:
 	@echo "Cleaning: $(OBJS_PATH)"
