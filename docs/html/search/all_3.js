@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['stack_3',['stack',['../classft_1_1stack.html',1,'ft::stack&lt; T, Container &gt;'],['../classft_1_1stack.html#a25bc7ee78548ea8126a83d76b4b1249f',1,'ft::stack::stack(const Container &amp;c)'],['../classft_1_1stack.html#ac68b102652cb1b36c530c5c2038b2777',1,'ft::stack::stack(const stack &amp;other)']]],
-  ['stack_2ehpp_4',['Stack.hpp',['../Stack_8hpp.html',1,'']]]
+  ['operator_3d_3',['operator=',['../classft_1_1stack.html#a4c4d1d0772493ee7cac086105dc01672',1,'ft::stack']]]
 ];

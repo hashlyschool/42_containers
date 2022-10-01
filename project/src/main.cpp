@@ -1,7 +1,22 @@
+/*!
+ * @file main.cpp
+ * @author hashly (ilya12-141998@mail.ru)
+ * @brief
+ * @version 1.0
+ * @date 2022-10-01
+ *
+ * @copyright Flex copyright (c) 2022
+ *
+ */
+
 #include "../inc/Stack.hpp"
 #include <stack>
 #include <iostream>
 
+/*!
+ * @brief testing custom stack
+ *
+ */
 void	testingStack()
 {
 	// ft::stack<int>		myStack;
