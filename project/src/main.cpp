@@ -13,10 +13,7 @@
 #include <stack>
 #include <iostream>
 
-/*!
- * @brief testing custom stack
- *
- */
+/// @brief function for testing custom stack
 void	testingStack()
 {
 	// ft::stack<int>		myStack;
@@ -29,11 +26,8 @@ void	testingStack()
 	// std::cout << "MyStack = " << myStack.top() << "\n";
 }
 
-/*!
- * @brief main function for testing custom containers
- *
- * @return int
- */
+/// @brief main function for testing custom containers
+/// @return int
 int	main()
 {
 	testingStack();
