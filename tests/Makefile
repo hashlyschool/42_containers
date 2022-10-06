@@ -15,12 +15,12 @@ SOURCE_FILES	=	main.cpp
 DOXYGEN_CONFIG	=	../docs/doxygenConf
 
 #Finish include
-INC_PATH		=	./inc/
+INC_PATH		=	../project/
 INC_NAME		=	$(INCS_FILES)
 INC				=	$(addprefix $(INC_PATH), $(INC_NAME))
 
 #Finish source
-SRCS_PATH		=	./src/
+SRCS_PATH		=	./
 SRCS_NAME		=	$(SOURCE_FILES)
 SRCS			=	$(addprefix $(SRCS_PATH), $(SRCS_NAME))
 #Finish objs
@@ -29,7 +29,7 @@ OBJS			=	$(addprefix $(OBJS_PATH), $(SRCS_NAME:.cpp=.o))
 
 all: ${NAME}
 
-$(NAME): doxygen $(OBJS_PATH) $(OBJS)
+$(NAME): $(OBJS_PATH) $(OBJS)
 	@$(CC) $(FLAGS) $(OPTFLAGS) -I$(INC_PATH) $(LDFLAGS) $(OBJS) -o $(NAME)
 	@echo "built $(NAME) finish"
 
@@ -54,4 +54,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re doxygen
