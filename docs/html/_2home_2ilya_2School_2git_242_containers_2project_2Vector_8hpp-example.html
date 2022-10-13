@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>42_containers: /home/ilya/School/git/42_containers/project/Vector.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="favicon.ico"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">42_containers
+   </div>
+   <div id="projectbrief">C++ containers</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">/home/ilya/School/git/42_containers/project/Vector.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<dl class="section author"><dt>Автор</dt><dd>hashly (<a href="#" onclick="location.href='mai'+'lto:'+'ily'+'a1'+'2-1'+'41'+'998'+'@m'+'ail'+'.r'+'u'; return false;">ilya1<span style="display: none;">.nosp@m.</span>2-14<span style="display: none;">.nosp@m.</span>1998@<span style="display: none;">.nosp@m.</span>mail<span style="display: none;">.nosp@m.</span>.ru</a>) </dd></dl>
+<dl class="section date"><dt>Дата</dt><dd>2022-10-13</dd></dl>
+<dl class="tparams"><dt>Параметры шаблона</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td></td></tr>
+    <tr><td class="paramname">Allocator</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd></dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Ошибка:</a></b></dt><dd></dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Необходимо сделать:</a></b></dt><dd></dd></dl>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><span class="preprocessor">#ifndef FT_VECTOR_HPP</span></div>
+<div class="line"><span class="preprocessor"># define FT_VECTOR_HPP</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;./iterators/RandomAccessIterator.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;./iterators/ReverseIterator.hpp&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span><a class="code" href="namespaceft.html">ft</a> {</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt; <span class="keyword">class</span> T, <span class="keyword">class</span> Allocator = std::allocator&lt;T&gt; &gt;</div>
+<div class="line"><span class="keyword">class </span>vector {</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keyword">typedef</span> T                                           value_type;</div>
+<div class="line">    <span class="keyword">typedef</span> Allocator                                   allocator_type;</div>
+<div class="line">    <span class="keyword">typedef</span> std::size_t                                 size_type;</div>
+<div class="line">    <span class="keyword">typedef</span> std::ptrdiff_t                              difference_type;</div>
+<div class="line">    <span class="keyword">typedef</span> value_type&amp;                                 reference;</div>
+<div class="line">    <span class="keyword">typedef</span> <span class="keyword">const</span> value_type&amp;                           const_reference;</div>
+<div class="line">    <span class="keyword">typedef</span> <span class="keyword">typename</span> Allocator::pointer                 pointer;</div>
+<div class="line">    <span class="keyword">typedef</span> <span class="keyword">typename</span> Allocator::const_pointer           const_pointer;</div>
+<div class="line">    <span class="keyword">typedef</span> <a name="_a0"></a><a class="code" href="classft_1_1RandomAccessIterator.html">ft::RandomAccessIterator&lt;value_type&gt;</a>        iterator;</div>
+<div class="line">    <span class="keyword">typedef</span> <a class="code" href="classft_1_1RandomAccessIterator.html">ft::RandomAccessIterator&lt;const value_type&gt;</a>  const_iterator;</div>
+<div class="line">    <span class="keyword">typedef</span> <a name="_a1"></a><a class="code" href="classft_1_1reverse__iterator.html">ft::reverse_iterator&lt;const_iterator&gt;</a>        const_reverse_iterator;</div>
+<div class="line">    <span class="keyword">typedef</span> <a class="code" href="classft_1_1reverse__iterator.html">ft::reverse_iterator&lt;iterator&gt;</a>              reverse_iterator;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    value_type*     _first;</div>
+<div class="line">    size_type       _size, _capacity;</div>
+<div class="line">    allocator_type  _allocator;</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">explicit</span> vector (<span class="keyword">const</span> allocator_type&amp; alloc = allocator_type()) : _first(0), _size(0), _capacity(0), _allocator(alloc) {}</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">explicit</span> vector (size_type n, <span class="keyword">const</span> value_type&amp; val = value_type(), <span class="keyword">const</span> allocator_type&amp; alloc = allocator_type()) : _size(n), _capacity(n), _allocator(alloc) {</div>
+<div class="line">        _first = _allocator.allocate(n);</div>
+<div class="line">        <span class="keywordflow">for</span> (size_type i = 0; i &lt; n; ++i)</div>
+<div class="line">            _allocator.construct(_first + i, val);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">class</span> InputIterator&gt;</div>
+<div class="line">    vector (InputIterator first, InputIterator last, <span class="keyword">const</span> allocator_type&amp; alloc = allocator_type()) : _allocator(alloc) {</div>
+<div class="line">        <span class="keywordflow">if</span> (first &gt; last)</div>
+<div class="line">            <span class="keywordflow">throw</span> std::length_error(<span class="stringliteral">&quot;vector&quot;</span>);</div>
+<div class="line">        _size = last - first;</div>
+<div class="line">        _capacity = _size;</div>
+<div class="line">        _first = _allocator.allocate(_capacity);</div>
+<div class="line">        <span class="keywordflow">for</span> (difference_type i = 0; i &lt; static_cast&lt;difference_type&gt;(_size); ++i)</div>
+<div class="line">            _allocator.construct(_first + i, *(first + i));</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    vector(<span class="keyword">const</span> vector&amp; x) : _size(0), _capacity(0) {</div>
+<div class="line">        *<span class="keyword">this</span> = x;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    ~vector()</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">for</span> (size_type i = 0; i &lt; _size; i++)</div>
+<div class="line">            _allocator.destroy(_first + i);</div>
+<div class="line">        <span class="keywordflow">if</span>(_capacity)</div>
+<div class="line">            _allocator.deallocate(_first, _capacity);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    vector&amp; operator=(<span class="keyword">const</span> vector&amp; x) {</div>
+<div class="line">        <span class="keywordflow">if</span> (*<span class="keyword">this</span> == x)</div>
+<div class="line">            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line">        <span class="keywordflow">for</span> (size_type i = 0; i &lt; _size; ++i)</div>
+<div class="line">            _allocator.destroy(_first + i);</div>
+<div class="line">        this-&gt;_size = x.size();</div>
+<div class="line">        <span class="keywordflow">if</span> (_capacity &lt; _size) {</div>
+<div class="line">            <span class="keywordflow">if</span> (_capacity != 0)</div>
+<div class="line">                _allocator.deallocate(_first, _capacity);</div>
+<div class="line">            _capacity = _size;</div>
+<div class="line">            _first = _allocator.allocate(_capacity);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">for</span> (size_type i = 0; i &lt; _size; ++i)</div>
+<div class="line">            _allocator.construct(_first + i, x[i]);</div>
+<div class="line">        <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">//ITERATORS</span></div>
+<div class="line">    iterator begin() { <span class="keywordflow">return</span> (iterator(_first)); }</div>
+<div class="line">    const_iterator begin()<span class="keyword"> const </span>{ <span class="keywordflow">return</span>(const_iterator(_first)); }</div>
+<div class="line"> </div>
+<div class="line">    iterator end(){ <span class="keywordflow">return</span> (iterator(_first + _size)); }</div>
+<div class="line">    const_iterator end()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (const_iterator(_first + _size)); }</div>
+<div class="line"> </div>
+<div class="line">    reverse_iterator rbegin() { <span class="keywordflow">return</span> (reverse_iterator(end())); }</div>
+<div class="line">    const_reverse_iterator rbegin()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (const_reverse_iterator(end())); }</div>
+<div class="line"> </div>
+<div class="line">    reverse_iterator rend() { <span class="keywordflow">return</span> (reverse_iterator(begin())); }</div>
+<div class="line">    const_reverse_iterator rend()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (const_reverse_iterator(begin())); }</div>
+<div class="line"> </div>
+<div class="line">    size_type   <a name="a2"></a><a class="code" href="classft_1_1vector.html#aa2ed68878a6bfabbac1851a2a19b92e5">size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (_size); }</div>
+<div class="line">    size_type   max_size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span>(_allocator.max_size()); }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> resize (size_type n, value_type val = value_type()) {</div>
+<div class="line">        <span class="keywordflow">if</span> (n &lt; _size) {</div>
+<div class="line">            <span class="keywordflow">for</span> (size_type i = n; i &lt; _size; ++i)</div>
+<div class="line">                _allocator.destroy(_first + i);</div>
+<div class="line">            _size = n;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (n &gt; _size) {</div>
+<div class="line">            <span class="keywordflow">if</span> (_capacity &lt; n)</div>
+<div class="line">                this-&gt;reserve(_capacity * 2 &gt; n ? _capacity * 2 : n);</div>
+<div class="line">            <span class="keywordflow">for</span> (size_type i = _size; i &lt; n; ++i) {</div>
+<div class="line">                _allocator.construct(_first + i, val);</div>
+<div class="line">                ++_size;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    size_type   capacity()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (_capacity); }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">bool</span> empty()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (_size == 0); }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span>    reserve(size_type n) {</div>
+<div class="line">        <span class="keywordflow">if</span> (n &lt;= _capacity)</div>
+<div class="line">            return ;</div>
+<div class="line">        <span class="keywordflow">if</span> (n &gt; max_size())</div>
+<div class="line">            <span class="keywordflow">throw</span> std::length_error(<span class="stringliteral">&quot;vector&quot;</span>);</div>
+<div class="line">        pointer newarr = _allocator.allocate(n);</div>
+<div class="line">        size_type   i = 0;</div>
+<div class="line">        <span class="keywordflow">try</span></div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">for</span> (; i &lt; _size; ++i)</div>
+<div class="line">                _allocator.construct(newarr + i, *(_first + i));</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">catch</span>(<span class="keyword">const</span> std::exception&amp; e)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">while</span> (i != 0) {</div>
+<div class="line">                _allocator.destroy(newarr + i - 1);</div>
+<div class="line">                ++i;</div>
+<div class="line">            }</div>
+<div class="line">            _allocator.deallocate(newarr, n);</div>
+<div class="line">            throw ;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">for</span> (size_type i = 0; i &lt; _size; ++i)</div>
+<div class="line">            _allocator.destroy(_first + i);</div>
+<div class="line">        <span class="keywordflow">if</span> (_capacity)</div>
+<div class="line">            _allocator.deallocate(_first, _capacity);</div>
+<div class="line">        _capacity = n;</div>
+<div class="line">        _first = newarr;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    reference operator[] (size_type n) { <span class="keywordflow">return</span>(*(_first + n)); }</div>
+<div class="line"> </div>
+<div class="line">    const_reference operator[] (size_type n)<span class="keyword"> const </span>{ <span class="keywordflow">return</span>(*(_first + n)); }</div>
+<div class="line"> </div>
+<div class="line">    reference at(size_type n) {</div>
+<div class="line">        <span class="keywordflow">if</span> (n &gt;= _size)</div>
+<div class="line">            <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;vector at out of range&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> (_first[n]);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    const_reference at(size_type n)<span class="keyword"> const </span>{</div>
+<div class="line">        <span class="keywordflow">if</span> (n &gt;= _size)</div>
+<div class="line">            <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;vector at out of range&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> (_first[n]);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    reference front() {<span class="keywordflow">return</span> (_first[0]); }</div>
+<div class="line">    const_reference front()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (_first[0]); }</div>
+<div class="line"> </div>
+<div class="line">    reference back() { <span class="keywordflow">return</span> (_first[_size - 1]); }</div>
+<div class="line">    const_reference back()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (_first[_size - 1]); }</div>
+<div class="line"> </div>
+<div class="line">    value_type* data() { <span class="keywordflow">return</span> (_first); }</div>
+<div class="line">    <span class="keyword">const</span> value_type* data()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (_first); }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">class</span> InputIterator&gt;</div>
+<div class="line">    <span class="keywordtype">void</span>    assign (InputIterator first, InputIterator last) {</div>
+<div class="line">        <span class="keywordflow">if</span> (first &gt; last)</div>
+<div class="line">            <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;vector&quot;</span>);</div>
+<div class="line">        difference_type count = last - first;</div>
+<div class="line">        clear();</div>
+<div class="line">        <span class="keywordflow">if</span> (count &gt; <span class="keyword">static_cast&lt;</span>difference_type<span class="keyword">&gt;</span>(_capacity)) {</div>
+<div class="line">            _allocator.deallocate(_first, _capacity);</div>
+<div class="line">            _first = _allocator.allocate(count);</div>
+<div class="line">            _capacity = count;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">for</span> (iterator it = first; it &lt; last; ++it)</div>
+<div class="line">            _allocator.construct(&amp;(*it), *it);</div>
+<div class="line">        _size = count;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> assign (size_type n, <span class="keyword">const</span> value_type&amp; val) {</div>
+<div class="line">        clear();</div>
+<div class="line">        <span class="keywordflow">if</span> (n &gt; _capacity) {</div>
+<div class="line">            _allocator.deallocate(_first, _capacity);</div>
+<div class="line">            _first = _allocator.allocate(n);</div>
+<div class="line">            _capacity = n;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">for</span> (size_type i = 0; i &lt; n; ++i)</div>
+<div class="line">            _allocator.construct(_first + i, val);</div>
+<div class="line">        _size = n;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span>    push_back(<span class="keyword">const</span> value_type&amp; val) {</div>
+<div class="line">        <span class="keywordflow">if</span>(_size == _capacity)</div>
+<div class="line">            reserve(_capacity == 0 ? 1 : _capacity * 2);</div>
+<div class="line">        _allocator.construct(_first + _size, val);</div>
+<div class="line">        _size++;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span>    pop_back() {</div>
+<div class="line">        <span class="keywordflow">if</span> (_size == 0)</div>
+<div class="line">            return ;</div>
+<div class="line">        _allocator.destroy(_first + _size - 1);</div>
+<div class="line">        _size--;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">//INSERT</span></div>
+<div class="line">    iterator insert (iterator position, <span class="keyword">const</span> value_type&amp; val) {</div>
+<div class="line">        <span class="keywordflow">if</span> (position &lt; begin() || position &gt; end())</div>
+<div class="line">            <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;vector&quot;</span>);</div>
+<div class="line">        difference_type start = position - begin();</div>
+<div class="line">        <span class="keywordflow">if</span> (_size == _capacity) {</div>
+<div class="line">            _capacity = _capacity * 2 + (_capacity == 0);</div>
+<div class="line">            pointer newarr = _allocator.allocate(_capacity);</div>
+<div class="line">            std::uninitialized_copy(begin(), position, iterator(newarr));</div>
+<div class="line">            _allocator.construct(newarr + start, val);</div>
+<div class="line">            std::uninitialized_copy(position, end(), iterator(newarr + start + 1));</div>
+<div class="line">            <span class="keywordflow">for</span> (size_type i = 0; i &lt; _size; ++i)</div>
+<div class="line">                _allocator.destroy(_first + i);</div>
+<div class="line">            <span class="keywordflow">if</span> (_size)</div>
+<div class="line">                _allocator.deallocate(_first, _size);</div>
+<div class="line">            ++_size;</div>
+<div class="line">            _first = newarr;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="keywordflow">for</span> (size_type i = _size; i &gt; <span class="keyword">static_cast&lt;</span>difference_type<span class="keyword">&gt;</span>(start); --i) {</div>
+<div class="line">                _allocator.destroy(_first + i);</div>
+<div class="line">                _allocator.construct(_first + i, *(_first + i - 1));</div>
+<div class="line">            }</div>
+<div class="line">            _allocator.destroy(&amp;(*position));</div>
+<div class="line">            _allocator.construct(&amp;(*position), val);</div>
+<div class="line">            _size++;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> (begin() + start);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> insert (iterator position, size_type n, <span class="keyword">const</span> value_type&amp; val) {</div>
+<div class="line">        <span class="keywordflow">if</span> (n == 0)</div>
+<div class="line">            return ;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (max_size() - _size &lt; n)</div>
+<div class="line">            <span class="keywordflow">throw</span> std::length_error(<span class="stringliteral">&quot;vector&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">if</span> (position &lt; begin() || position &gt; end())</div>
+<div class="line">            <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;vector&quot;</span>);</div>
+<div class="line">        difference_type start = position - begin();</div>
+<div class="line">        <span class="keywordflow">if</span> (_size + n &gt; _capacity) {</div>
+<div class="line">            size_type new_cap = _capacity * 2 &gt;= _size + n ? _capacity * 2 : _size + n;</div>
+<div class="line">            pointer new_arr = _allocator.allocate(new_cap);</div>
+<div class="line">            std::uninitialized_copy(begin(), position, iterator(new_arr));</div>
+<div class="line">            <span class="keywordflow">for</span> (size_type i = 0; i &lt; n; ++i)</div>
+<div class="line">                _allocator.construct(new_arr + start + i, val);</div>
+<div class="line">            std::uninitialized_copy(position + n, end(), iterator(new_arr + start + n));</div>
+<div class="line">            <span class="keywordflow">for</span> (size_type i = 0; i &lt; _size; ++i)</div>
+<div class="line">                _allocator.destroy(_first + i);</div>
+<div class="line">            <span class="keywordflow">if</span> (_capacity)</div>
+<div class="line">                _allocator.deallocate(_first, _capacity);</div>
+<div class="line">            _size += n;</div>
+<div class="line">            _capacity = new_cap;</div>
+<div class="line">            _first = new_arr;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="keywordflow">for</span> (size_type i = _size; i &gt; <span class="keyword">static_cast&lt;</span>size_type<span class="keyword">&gt;</span>(start); i--) {</div>
+<div class="line">                _allocator.destroy(_first + i + n - 1);</div>
+<div class="line">                _allocator.construct(_first + i + n - 1, *(_first + i - 1));</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">for</span> (size_type i = 0; i &lt; n; i++) {</div>
+<div class="line">                _allocator.destroy(_first + i + start);</div>
+<div class="line">                _allocator.construct(_first + i + start, val);</div>
+<div class="line">            }</div>
+<div class="line">            _size += n;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">class</span> InputIterator&gt;</div>
+<div class="line">    <span class="keywordtype">void</span> insert (iterator position, InputIterator first, InputIterator last) {</div>
+<div class="line">        <span class="keywordflow">if</span> (position &lt; begin() || position &gt; end() || first &gt; last)</div>
+<div class="line">            <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;vector&quot;</span>);</div>
+<div class="line">        size_type start = <span class="keyword">static_cast&lt;</span>size_type<span class="keyword">&gt;</span>(position - begin());</div>
+<div class="line">        size_type count = <span class="keyword">static_cast&lt;</span>size_type<span class="keyword">&gt;</span>(last - first);</div>
+<div class="line">        <span class="keywordflow">if</span> (count == 0)</div>
+<div class="line">            return ;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (max_size() - _size &lt; count)</div>
+<div class="line">            <span class="keywordflow">throw</span> std::length_error(<span class="stringliteral">&quot;vector&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">if</span> (_size + count &gt; _capacity) {</div>
+<div class="line">            size_type new_cap = _capacity * 2 &gt;= _size + count ? _capacity * 2 : _size + count;</div>
+<div class="line">            pointer new_arr = _allocator.allocate(new_cap);</div>
+<div class="line">            std::uninitialized_copy(begin(), position, iterator(new_arr));</div>
+<div class="line">            <span class="keywordflow">try</span> {</div>
+<div class="line">                <span class="keywordflow">for</span> (size_type i = 0; i &lt; static_cast&lt;size_type&gt;(count); i++, first++)</div>
+<div class="line">                    _allocator.construct(new_arr + start + i, *first);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">catch</span> (...){</div>
+<div class="line">                <span class="keywordflow">for</span> (size_type i = 0; i &lt; count + start; ++i)</div>
+<div class="line">                    _allocator.destroy(new_arr + i);</div>
+<div class="line">                _allocator.deallocate(new_arr, new_cap);</div>
+<div class="line">                <span class="keywordflow">throw</span>;</div>
+<div class="line">            }</div>
+<div class="line">            std::uninitialized_copy(position, end(), iterator(new_arr + start + count));</div>
+<div class="line">            <span class="keywordflow">for</span> (size_type i = 0; i &lt; _size; i++)</div>
+<div class="line">                _allocator.destroy(_first + i);</div>
+<div class="line">            _allocator.deallocate(_first, _capacity);</div>
+<div class="line">            _size += count;</div>
+<div class="line">            _capacity = new_cap;</div>
+<div class="line">            _first = new_arr;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="keywordflow">for</span> (size_type i = _size; i &gt; <span class="keyword">static_cast&lt;</span>size_type<span class="keyword">&gt;</span>(start); i--) {</div>
+<div class="line">                _allocator.destroy(_first + i + count - 1);</div>
+<div class="line">                _allocator.construct(_first + i + count - 1, *(_first + i - 1));</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">for</span> (size_type i = 0; i &lt; static_cast&lt;size_type&gt;(count); i++, first++) {</div>
+<div class="line">                _allocator.destroy(_first + i + count);</div>
+<div class="line">                _allocator.construct(_first + start + i, *first);</div>
+<div class="line">            }</div>
+<div class="line">            _size += count;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    iterator    erase(iterator position) {</div>
+<div class="line">        <span class="keywordflow">if</span> (_size == 0)</div>
+<div class="line">            <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;vector&quot;</span>);</div>
+<div class="line">        size_type d = <span class="keyword">static_cast&lt;</span>size_type<span class="keyword">&gt;</span>(std::distance(begin(), position));</div>
+<div class="line">        <span class="keywordflow">if</span> (d &gt; _size - 1)</div>
+<div class="line">            <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;vector&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">for</span> (size_type i = d; i &lt; _size - 1; ++i){</div>
+<div class="line">            _allocator.destroy(_first + i);</div>
+<div class="line">            _allocator.construct(_first + i, *(_first + i + 1));</div>
+<div class="line">        }</div>
+<div class="line">        _size--;</div>
+<div class="line">        _allocator.destroy(_first + _size - 1);</div>
+<div class="line">        <span class="keywordflow">return</span> iterator(_first + d);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    iterator    erase(iterator first, iterator last) {</div>
+<div class="line">        difference_type start = std::distance(begin(), first);</div>
+<div class="line">        difference_type need_to_copy = std::distance(last, end());</div>
+<div class="line">        <span class="keywordtype">bool</span> last_is_end = (last == end());</div>
+<div class="line">        <span class="keywordflow">while</span> (first != last){</div>
+<div class="line">            _allocator.destroy(&amp;(*first));</div>
+<div class="line">            first++;</div>
+<div class="line">        }</div>
+<div class="line">        size_type i = start;</div>
+<div class="line">        <span class="keywordflow">while</span> (last &lt; end()){</div>
+<div class="line">            <span class="keywordflow">if</span> (this-&gt;_first + start)</div>
+<div class="line">                _allocator.destroy(_first + i);</div>
+<div class="line">            _allocator.construct(_first + i, *last);</div>
+<div class="line">            i++;</div>
+<div class="line">            last++;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">for</span> (size_type i = start + need_to_copy; i &lt; _size; i++)</div>
+<div class="line">            _allocator.destroy(_first + i);</div>
+<div class="line">        _size = start + need_to_copy;</div>
+<div class="line">        <span class="keywordflow">return</span> last_is_end ? end() : iterator(_first + start);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> swap(vector&amp; x) {</div>
+<div class="line">        <span class="keywordflow">if</span> (x == *<span class="keyword">this</span>)</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        std::swap(_first, x._first);</div>
+<div class="line">        std::swap(_size, x._size);</div>
+<div class="line">        std::swap(_capacity, x._capacity);</div>
+<div class="line">        std::swap(_allocator, x._allocator);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> clear() {</div>
+<div class="line">        <span class="keywordflow">for</span> (size_type i = 0; i &lt; _size; i++)</div>
+<div class="line">            _allocator.destroy(_first + i);</div>
+<div class="line">        _size = 0;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    allocator_type get_allocator()<span class="keyword"> const </span>{</div>
+<div class="line">        <span class="keywordflow">return</span>(_allocator);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> Alloc&gt;</div>
+<div class="line"><span class="keywordtype">bool</span> operator== (<span class="keyword">const</span> <a name="_a3"></a><a class="code" href="classft_1_1vector.html">ft::vector&lt;T, Alloc&gt;</a>&amp; lhs, <span class="keyword">const</span> <a class="code" href="classft_1_1vector.html">ft::vector&lt;T, Alloc&gt;</a>&amp; rhs)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (lhs.<a class="code" href="classft_1_1vector.html#aa2ed68878a6bfabbac1851a2a19b92e5">size</a>() != rhs.<a class="code" href="classft_1_1vector.html#aa2ed68878a6bfabbac1851a2a19b92e5">size</a>())</div>
+<div class="line">        <span class="keywordflow">return</span> (<span class="keyword">false</span>);</div>
+<div class="line">    <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; rhs.<a class="code" href="classft_1_1vector.html#aa2ed68878a6bfabbac1851a2a19b92e5">size</a>(); i++)</div>
+<div class="line">        <span class="keywordflow">if</span> (lhs[i] != rhs[i])</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> Alloc&gt;</div>
+<div class="line"><span class="keywordtype">bool</span> operator!= (<span class="keyword">const</span> vector&lt;T, Alloc&gt;&amp; lhs, <span class="keyword">const</span> vector&lt;T, Alloc&gt;&amp; rhs)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> (!(lhs == rhs));</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> Alloc&gt;</div>
+<div class="line"><span class="keywordtype">bool</span> operator&lt;  (<span class="keyword">const</span> vector&lt;T, Alloc&gt;&amp; lhs, <span class="keyword">const</span> vector&lt;T, Alloc&gt;&amp; rhs)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> (ft::lexicographical_compare(lhs.<a name="a4"></a>begin(), lhs.<a name="a5"></a>end(), rhs.begin(), rhs.end()));</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> Alloc&gt;</div>
+<div class="line"><span class="keywordtype">bool</span> operator&lt;= (<span class="keyword">const</span> vector&lt;T, Alloc&gt;&amp; lhs, <span class="keyword">const</span> vector&lt;T, Alloc&gt;&amp; rhs)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> (!(rhs &lt; lhs));</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> Alloc&gt;</div>
+<div class="line"><span class="keywordtype">bool</span> operator&gt;  (<span class="keyword">const</span> vector&lt;T, Alloc&gt;&amp; lhs, <span class="keyword">const</span> vector&lt;T, Alloc&gt;&amp; rhs)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> (rhs &lt; lhs);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> Alloc&gt;</div>
+<div class="line"><span class="keywordtype">bool</span> operator&gt;= (<span class="keyword">const</span> vector&lt;T, Alloc&gt;&amp; lhs, <span class="keyword">const</span> vector&lt;T, Alloc&gt;&amp; rhs)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> (!(lhs &lt; rhs));</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">} <span class="comment">// namespace ft</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>std</div>
+<div class="line">{</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span>&lt; <span class="keyword">class</span> T, <span class="keyword">class</span> Alloc &gt;</div>
+<div class="line"><span class="keywordtype">void</span> swap(<a class="code" href="classft_1_1vector.html">ft::vector&lt;T,Alloc&gt;</a>&amp; lhs, <a class="code" href="classft_1_1vector.html">ft::vector&lt;T,Alloc&gt;</a>&amp; rhs )</div>
+<div class="line">{</div>
+<div class="line">    lhs.<a name="a6"></a>swap(rhs);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">} <span class="comment">// namespace std</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="ttc" id="aclassft_1_1RandomAccessIterator_html"><div class="ttname"><a href="classft_1_1RandomAccessIterator.html">ft::RandomAccessIterator</a></div><div class="ttdef"><b>Definition:</b> RandomAccessIterator.hpp:11</div></div>
+<div class="ttc" id="aclassft_1_1reverse__iterator_html"><div class="ttname"><a href="classft_1_1reverse__iterator.html">ft::reverse_iterator</a></div><div class="ttdef"><b>Definition:</b> ReverseIterator.hpp:11</div></div>
+<div class="ttc" id="aclassft_1_1vector_html"><div class="ttname"><a href="classft_1_1vector.html">ft::vector</a></div><div class="ttdef"><b>Definition:</b> Vector.hpp:34</div></div>
+<div class="ttc" id="aclassft_1_1vector_html_aa2ed68878a6bfabbac1851a2a19b92e5"><div class="ttname"><a href="classft_1_1vector.html#aa2ed68878a6bfabbac1851a2a19b92e5">ft::vector::size</a></div><div class="ttdeci">size_type size() const</div><div class="ttdoc">CAPACITY.</div><div class="ttdef"><b>Definition:</b> Vector.hpp:118</div></div>
+<div class="ttc" id="anamespaceft_html"><div class="ttname"><a href="namespaceft.html">ft</a></div><div class="ttdoc">custom namespace for school project's</div><div class="ttdef"><b>Definition:</b> Stack.hpp:19</div></div>
+</div><!-- fragment --> </div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

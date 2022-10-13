@@ -75,8 +75,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
 <a href="#pub-methods">Открытые члены</a> &#124;
 <a href="#pro-attribs">Защищенные данные</a> &#124;
+<a href="#friends">Друзья</a> &#124;
 <a href="classft_1_1stack-members.html">Полный список членов класса</a>  </div>
   <div class="headertitle">
 <div class="title">Шаблон класса ft::stack&lt; T, Container &gt;</div>  </div>
@@ -88,45 +90,109 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="Stack_8hpp_source.html">Stack.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a5bfc0c96c4df650c82ee4e113b11053e"><td class="memItemLeft" align="right" valign="top"><a id="a5bfc0c96c4df650c82ee4e113b11053e"></a>
+typedef T&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
+<tr class="separator:a5bfc0c96c4df650c82ee4e113b11053e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac12feb4c33e5beaa49b02d68649a2d65"><td class="memItemLeft" align="right" valign="top"><a id="ac12feb4c33e5beaa49b02d68649a2d65"></a>
+typedef Container&#160;</td><td class="memItemRight" valign="bottom"><b>container_type</b></td></tr>
+<tr class="separator:ac12feb4c33e5beaa49b02d68649a2d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa63332813f384f0e95626e696a4522d9"><td class="memItemLeft" align="right" valign="top"><a id="aa63332813f384f0e95626e696a4522d9"></a>
+typedef Container::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b></td></tr>
+<tr class="separator:aa63332813f384f0e95626e696a4522d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02df64d8bd473774f474c915729dfd18"><td class="memItemLeft" align="right" valign="top"><a id="a02df64d8bd473774f474c915729dfd18"></a>
+typedef value_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b></td></tr>
+<tr class="separator:a02df64d8bd473774f474c915729dfd18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accfb24677109b428bb1f0f5758bbc54d"><td class="memItemLeft" align="right" valign="top"><a id="accfb24677109b428bb1f0f5758bbc54d"></a>
+typedef const value_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>const_reference</b></td></tr>
+<tr class="separator:accfb24677109b428bb1f0f5758bbc54d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a25bc7ee78548ea8126a83d76b4b1249f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classft_1_1stack.html#a25bc7ee78548ea8126a83d76b4b1249f">stack</a> (const Container &amp;c)</td></tr>
-<tr class="memdesc:a25bc7ee78548ea8126a83d76b4b1249f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new stack object.  <a href="classft_1_1stack.html#a25bc7ee78548ea8126a83d76b4b1249f">Подробнее...</a><br /></td></tr>
-<tr class="separator:a25bc7ee78548ea8126a83d76b4b1249f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5ab77d2f213e6dcdb532c23e635176d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classft_1_1stack.html#af5ab77d2f213e6dcdb532c23e635176d">stack</a> (const container_type &amp;c=container_type())</td></tr>
+<tr class="memdesc:af5ab77d2f213e6dcdb532c23e635176d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new stack object.  <a href="classft_1_1stack.html#af5ab77d2f213e6dcdb532c23e635176d">Подробнее...</a><br /></td></tr>
+<tr class="separator:af5ab77d2f213e6dcdb532c23e635176d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac68b102652cb1b36c530c5c2038b2777"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classft_1_1stack.html#ac68b102652cb1b36c530c5c2038b2777">stack</a> (const <a class="el" href="classft_1_1stack.html">stack</a> &amp;other)</td></tr>
 <tr class="memdesc:ac68b102652cb1b36c530c5c2038b2777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="classft_1_1stack.html#ac68b102652cb1b36c530c5c2038b2777">Подробнее...</a><br /></td></tr>
 <tr class="separator:ac68b102652cb1b36c530c5c2038b2777"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c4d1d0772493ee7cac086105dc01672"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classft_1_1stack.html">stack</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classft_1_1stack.html#a4c4d1d0772493ee7cac086105dc01672">operator=</a> (const <a class="el" href="classft_1_1stack.html">stack</a> &amp;other)</td></tr>
 <tr class="memdesc:a4c4d1d0772493ee7cac086105dc01672"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator =  <a href="classft_1_1stack.html#a4c4d1d0772493ee7cac086105dc01672">Подробнее...</a><br /></td></tr>
 <tr class="separator:a4c4d1d0772493ee7cac086105dc01672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2938f65bd2da8fcc7b19c876a96a39d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classft_1_1stack.html#a2938f65bd2da8fcc7b19c876a96a39d2">empty</a> () const</td></tr>
+<tr class="memdesc:a2938f65bd2da8fcc7b19c876a96a39d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">check empty container  <a href="classft_1_1stack.html#a2938f65bd2da8fcc7b19c876a96a39d2">Подробнее...</a><br /></td></tr>
+<tr class="separator:a2938f65bd2da8fcc7b19c876a96a39d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c1c7dcb05c03fefa316baa7864bedb4"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classft_1_1stack.html#a6c1c7dcb05c03fefa316baa7864bedb4">size</a> () const</td></tr>
+<tr class="memdesc:a6c1c7dcb05c03fefa316baa7864bedb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">return size container  <a href="classft_1_1stack.html#a6c1c7dcb05c03fefa316baa7864bedb4">Подробнее...</a><br /></td></tr>
+<tr class="separator:a6c1c7dcb05c03fefa316baa7864bedb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59d94b0aaa5b5709b8c61e581f2c050a"><td class="memItemLeft" align="right" valign="top">value_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classft_1_1stack.html#a59d94b0aaa5b5709b8c61e581f2c050a">top</a> ()</td></tr>
+<tr class="memdesc:a59d94b0aaa5b5709b8c61e581f2c050a"><td class="mdescLeft">&#160;</td><td class="mdescRight">return link to top element  <a href="classft_1_1stack.html#a59d94b0aaa5b5709b8c61e581f2c050a">Подробнее...</a><br /></td></tr>
+<tr class="separator:a59d94b0aaa5b5709b8c61e581f2c050a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac07fa0df406882545c9cd08066ccb2e6"><td class="memItemLeft" align="right" valign="top">const value_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classft_1_1stack.html#ac07fa0df406882545c9cd08066ccb2e6">top</a> () const</td></tr>
+<tr class="memdesc:ac07fa0df406882545c9cd08066ccb2e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">return const link to top element  <a href="classft_1_1stack.html#ac07fa0df406882545c9cd08066ccb2e6">Подробнее...</a><br /></td></tr>
+<tr class="separator:ac07fa0df406882545c9cd08066ccb2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fd7220db05e24583ad377f216b50685"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classft_1_1stack.html#a1fd7220db05e24583ad377f216b50685">push</a> (const value_type &amp;val)</td></tr>
+<tr class="memdesc:a1fd7220db05e24583ad377f216b50685"><td class="mdescLeft">&#160;</td><td class="mdescRight">function for insert value in back stack  <a href="classft_1_1stack.html#a1fd7220db05e24583ad377f216b50685">Подробнее...</a><br /></td></tr>
+<tr class="separator:a1fd7220db05e24583ad377f216b50685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae62ad1bfcd17122fdf6e9c5f58a5e474"><td class="memItemLeft" align="right" valign="top"><a id="ae62ad1bfcd17122fdf6e9c5f58a5e474"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classft_1_1stack.html#ae62ad1bfcd17122fdf6e9c5f58a5e474">pop</a> ()</td></tr>
+<tr class="memdesc:ae62ad1bfcd17122fdf6e9c5f58a5e474"><td class="mdescLeft">&#160;</td><td class="mdescRight">function for delete element in back stack <br /></td></tr>
+<tr class="separator:ae62ad1bfcd17122fdf6e9c5f58a5e474"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Защищенные данные</h2></td></tr>
-<tr class="memitem:a21414ff5fdb65c1b452dceee2921bad5"><td class="memItemLeft" align="right" valign="top"><a id="a21414ff5fdb65c1b452dceee2921bad5"></a>
-Container&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classft_1_1stack.html#a21414ff5fdb65c1b452dceee2921bad5">_container</a></td></tr>
-<tr class="memdesc:a21414ff5fdb65c1b452dceee2921bad5"><td class="mdescLeft">&#160;</td><td class="mdescRight">base containers <br /></td></tr>
-<tr class="separator:a21414ff5fdb65c1b452dceee2921bad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a352aac7fee832db4d33b539eed6e0b55"><td class="memItemLeft" align="right" valign="top"><a id="a352aac7fee832db4d33b539eed6e0b55"></a>
+container_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classft_1_1stack.html#a352aac7fee832db4d33b539eed6e0b55">_container</a></td></tr>
+<tr class="memdesc:a352aac7fee832db4d33b539eed6e0b55"><td class="mdescLeft">&#160;</td><td class="mdescRight">base containers <br /></td></tr>
+<tr class="separator:a352aac7fee832db4d33b539eed6e0b55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Друзья</h2></td></tr>
+<tr class="memitem:a690c72a7df2d690c7426fc99733d7440"><td class="memTemplParams" colspan="2"><a id="a690c72a7df2d690c7426fc99733d7440"></a>
+template&lt;class A , class Cont &gt; </td></tr>
+<tr class="memitem:a690c72a7df2d690c7426fc99733d7440"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classft_1_1stack.html">stack</a>&lt; A, Cont &gt; &amp;lhs, const <a class="el" href="classft_1_1stack.html">stack</a>&lt; A, Cont &gt; &amp;rhs)</td></tr>
+<tr class="separator:a690c72a7df2d690c7426fc99733d7440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61660722c24d4d4cfa0ada3724e3a823"><td class="memTemplParams" colspan="2"><a id="a61660722c24d4d4cfa0ada3724e3a823"></a>
+template&lt;class A , class Cont &gt; </td></tr>
+<tr class="memitem:a61660722c24d4d4cfa0ada3724e3a823"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classft_1_1stack.html">stack</a>&lt; A, Cont &gt; &amp;lhs, const <a class="el" href="classft_1_1stack.html">stack</a>&lt; A, Cont &gt; &amp;rhs)</td></tr>
+<tr class="separator:a61660722c24d4d4cfa0ada3724e3a823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a354ae1f0d591940c837e124499534620"><td class="memTemplParams" colspan="2"><a id="a354ae1f0d591940c837e124499534620"></a>
+template&lt;class A , class Cont &gt; </td></tr>
+<tr class="memitem:a354ae1f0d591940c837e124499534620"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="classft_1_1stack.html">stack</a>&lt; A, Cont &gt; &amp;lhs, const <a class="el" href="classft_1_1stack.html">stack</a>&lt; A, Cont &gt; &amp;rhs)</td></tr>
+<tr class="separator:a354ae1f0d591940c837e124499534620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2997db6cd33398dda2cc42e1b64c51dc"><td class="memTemplParams" colspan="2"><a id="a2997db6cd33398dda2cc42e1b64c51dc"></a>
+template&lt;class A , class Cont &gt; </td></tr>
+<tr class="memitem:a2997db6cd33398dda2cc42e1b64c51dc"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="classft_1_1stack.html">stack</a>&lt; A, Cont &gt; &amp;lhs, const <a class="el" href="classft_1_1stack.html">stack</a>&lt; A, Cont &gt; &amp;rhs)</td></tr>
+<tr class="separator:a2997db6cd33398dda2cc42e1b64c51dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef802db8376740d117c6ce890069d438"><td class="memTemplParams" colspan="2"><a id="aef802db8376740d117c6ce890069d438"></a>
+template&lt;class A , class Cont &gt; </td></tr>
+<tr class="memitem:aef802db8376740d117c6ce890069d438"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="classft_1_1stack.html">stack</a>&lt; A, Cont &gt; &amp;lhs, const <a class="el" href="classft_1_1stack.html">stack</a>&lt; A, Cont &gt; &amp;rhs)</td></tr>
+<tr class="separator:aef802db8376740d117c6ce890069d438"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15088bda098e8d6888493b2ae3eeffee"><td class="memTemplParams" colspan="2"><a id="a15088bda098e8d6888493b2ae3eeffee"></a>
+template&lt;class A , class Cont &gt; </td></tr>
+<tr class="memitem:a15088bda098e8d6888493b2ae3eeffee"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="classft_1_1stack.html">stack</a>&lt; A, Cont &gt; &amp;lhs, const <a class="el" href="classft_1_1stack.html">stack</a>&lt; A, Cont &gt; &amp;rhs)</td></tr>
+<tr class="separator:a15088bda098e8d6888493b2ae3eeffee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
-<div class="textblock"><h3>template&lt;class T, class Container = std::deque&lt;T&gt;&gt;<br />
+<div class="textblock"><h3>template&lt;class T, class Container = ft::vector&lt;T&gt;&gt;<br />
 class ft::stack&lt; T, Container &gt;</h3>
 
 <p>custom implementation std::stack </p>
 <dl class="tparams"><dt>Параметры шаблона</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td></td></tr>
-    <tr><td class="paramname">Container</td><td></td></tr>
+    <tr><td class="paramname">T</td><td>тип данных для создания контейнера </td></tr>
+    <tr><td class="paramname">Container</td><td>основной контейнер </td></tr>
   </table>
   </dd>
 </dl>
 </div><h2 class="groupheader">Конструктор(ы)</h2>
-<a id="a25bc7ee78548ea8126a83d76b4b1249f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25bc7ee78548ea8126a83d76b4b1249f">&#9670;&nbsp;</a></span>stack() <span class="overload">[1/2]</span></h2>
+<a id="af5ab77d2f213e6dcdb532c23e635176d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5ab77d2f213e6dcdb532c23e635176d">&#9670;&nbsp;</a></span>stack() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T , class Container  = std::deque&lt;T&gt;&gt; </div>
+template&lt;class T , class Container  = ft::vector&lt;T&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -134,8 +200,8 @@ template&lt;class T , class Container  = std::deque&lt;T&gt;&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classft_1_1stack.html">ft::stack</a>&lt; T, Container &gt;::<a class="el" href="classft_1_1stack.html">stack</a> </td>
           <td>(</td>
-          <td class="paramtype">const Container &amp;&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
+          <td class="paramtype">const container_type &amp;&#160;</td>
+          <td class="paramname"><em>c</em> = <code>container_type()</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -149,7 +215,7 @@ template&lt;class T , class Container  = std::deque&lt;T&gt;&gt; </div>
 <p>Construct a new stack object. </p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
-    <tr><td class="paramname">c</td><td></td></tr>
+    <tr><td class="paramname">c</td><td>основной контейнер </td></tr>
   </table>
   </dd>
 </dl>
@@ -162,7 +228,7 @@ template&lt;class T , class Container  = std::deque&lt;T&gt;&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T , class Container  = std::deque&lt;T&gt;&gt; </div>
+template&lt;class T , class Container  = ft::vector&lt;T&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -193,13 +259,45 @@ template&lt;class T , class Container  = std::deque&lt;T&gt;&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Методы</h2>
+<a id="a2938f65bd2da8fcc7b19c876a96a39d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2938f65bd2da8fcc7b19c876a96a39d2">&#9670;&nbsp;</a></span>empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class Container  = ft::vector&lt;T&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classft_1_1stack.html">ft::stack</a>&lt; T, Container &gt;::empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>check empty container </p>
+<dl class="section return"><dt>Возвращает</dt><dd>true - empty </dd>
+<dd>
+false - no empty </dd></dl>
+
+</div>
+</div>
 <a id="a4c4d1d0772493ee7cac086105dc01672"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c4d1d0772493ee7cac086105dc01672">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T , class Container  = std::deque&lt;T&gt;&gt; </div>
+template&lt;class T , class Container  = ft::vector&lt;T&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -230,8 +328,134 @@ template&lt;class T , class Container  = std::deque&lt;T&gt;&gt; </div>
 
 </div>
 </div>
+<a id="a1fd7220db05e24583ad377f216b50685"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fd7220db05e24583ad377f216b50685">&#9670;&nbsp;</a></span>push()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class Container  = ft::vector&lt;T&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classft_1_1stack.html">ft::stack</a>&lt; T, Container &gt;::push </td>
+          <td>(</td>
+          <td class="paramtype">const value_type &amp;&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>function for insert value in back stack </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>value to insert </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6c1c7dcb05c03fefa316baa7864bedb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c1c7dcb05c03fefa316baa7864bedb4">&#9670;&nbsp;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class Container  = ft::vector&lt;T&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_type <a class="el" href="classft_1_1stack.html">ft::stack</a>&lt; T, Container &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return size container </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Container::size_type </dd></dl>
+
+</div>
+</div>
+<a id="a59d94b0aaa5b5709b8c61e581f2c050a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59d94b0aaa5b5709b8c61e581f2c050a">&#9670;&nbsp;</a></span>top() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class Container  = ft::vector&lt;T&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">value_type&amp; <a class="el" href="classft_1_1stack.html">ft::stack</a>&lt; T, Container &gt;::top </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return link to top element </p>
+<dl class="section return"><dt>Возвращает</dt><dd>T&amp; </dd></dl>
+
+</div>
+</div>
+<a id="ac07fa0df406882545c9cd08066ccb2e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac07fa0df406882545c9cd08066ccb2e6">&#9670;&nbsp;</a></span>top() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class Container  = ft::vector&lt;T&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const value_type&amp; <a class="el" href="classft_1_1stack.html">ft::stack</a>&lt; T, Container &gt;::top </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return const link to top element </p>
+<dl class="section return"><dt>Возвращает</dt><dd>const T&amp; </dd></dl>
+
+</div>
+</div>
 <hr/>Объявления и описания членов класса находятся в файле:<ul>
-<li>inc/<a class="el" href="Stack_8hpp_source.html">Stack.hpp</a></li>
+<li>/home/ilya/School/git/42_containers/project/<a class="el" href="Stack_8hpp_source.html">Stack.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,4 +1,10 @@
-<map id="inc/Stack.hpp" name="inc/Stack.hpp">
-<area shape="rect" id="node1" title="custom std::stack" alt="" coords="5,5,115,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="29,80,91,107"/>
+<map id="/home/ilya/School/git/42_containers/project/Stack.hpp" name="/home/ilya/School/git/42_containers/project/Stack.hpp">
+<area shape="rect" id="node1" title="custom std::stack" alt="" coords="243,5,409,61"/>
+<area shape="rect" id="node2" href="$Vector_8hpp.html" title="file brief" alt="" coords="277,109,375,136"/>
+<area shape="rect" id="node3" href="$RandomAccessIterator_8hpp.html" title="реализация RandomAccessIterator." alt="" coords="5,184,193,225"/>
+<area shape="rect" id="node7" href="$ReverseIterator_8hpp.html" title="реализация reverse_iterator." alt="" coords="217,191,435,218"/>
+<area shape="rect" id="node8" title=" " alt="" coords="459,191,545,218"/>
+<area shape="rect" id="node4" href="$IteratorUtils_8hpp.html" title="файл вспомогательных функций В файле IteratorUtils.hpp находятся вспомогательные функции для реализац..." alt="" coords="145,273,281,300"/>
+<area shape="rect" id="node5" title=" " alt="" coords="125,348,202,375"/>
+<area shape="rect" id="node6" title=" " alt="" coords="227,348,297,375"/>
 </map>

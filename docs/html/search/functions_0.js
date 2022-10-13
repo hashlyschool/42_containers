@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_13',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]]
+  ['empty_52',['empty',['../classft_1_1stack.html#a2938f65bd2da8fcc7b19c876a96a39d2',1,'ft::stack']]]
 ];

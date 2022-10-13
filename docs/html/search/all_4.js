@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['stack_5',['stack',['../classft_1_1stack.html',1,'ft::stack&lt; T, Container &gt;'],['../classft_1_1stack.html#a25bc7ee78548ea8126a83d76b4b1249f',1,'ft::stack::stack(const Container &amp;c)'],['../classft_1_1stack.html#ac68b102652cb1b36c530c5c2038b2777',1,'ft::stack::stack(const stack &amp;other)']]],
-  ['stack_2ehpp_6',['Stack.hpp',['../Stack_8hpp.html',1,'']]],
-  ['subject_20_3ctt_3eft_5fcontainers_3c_2ftt_3e_7',['Subject &lt;tt&gt;ft_containers&lt;/tt&gt;',['../index.html',1,'']]]
+  ['iterator_5',['iterator',['../classft_1_1iterator.html',1,'ft']]],
+  ['iterator_3c_20ft_3a_3abidirectional_5fiterator_5ftag_2c_20t_20_3e_6',['iterator&lt; ft::bidirectional_iterator_tag, T &gt;',['../classft_1_1iterator.html',1,'ft']]],
+  ['iterator_3c_20ft_3a_3arandom_5faccess_5fiterator_5ftag_2c_20t_20_3e_7',['iterator&lt; ft::random_access_iterator_tag, T &gt;',['../classft_1_1iterator.html',1,'ft']]],
+  ['iterator_5ftraits_8',['iterator_traits',['../structft_1_1iterator__traits.html',1,'ft']]],
+  ['iterator_5ftraits_3c_20const_20t_20_2a_20_3e_9',['iterator_traits&lt; const T * &gt;',['../classft_1_1iterator__traits_3_01const_01T_01_5_01_4.html',1,'ft']]],
+  ['iterator_5ftraits_3c_20t_20_2a_20_3e_10',['iterator_traits&lt; T * &gt;',['../structft_1_1iterator__traits_3_01T_01_5_01_4.html',1,'ft']]],
+  ['iteratorutils_2ehpp_11',['IteratorUtils.hpp',['../IteratorUtils_8hpp.html',1,'']]]
 ];

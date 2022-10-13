@@ -6,7 +6,11 @@ OPTFLAGS		=	-g -fsanitize=address
 FLAGS			=	-std=c++98 -Wall -Wextra -Werror -pedantic -MMD -MP
 
 #Include file's
-INCS_FILES		=	Stack.hpp
+INCS_FILES		=	Stack.hpp \
+					Vector.hpp \
+					iterators/ReverseIterator.hpp \
+					iterators/IteratorUtils.hpp \
+					iterators/RandomAccessIterator.hpp
 
 #Source file's
 SOURCE_FILES	=	main.cpp

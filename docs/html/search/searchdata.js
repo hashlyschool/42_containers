@@ -1,10 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "_fmost",
-  1: "s",
-  2: "f",
-  3: "ms",
-  4: "most",
+  0: "_befimoprstv",
+  1: "birsv",
+  2: "fs",
+  3: "imrsv",
+  4: "emopst",
   5: "_",
   6: "s"
 };
