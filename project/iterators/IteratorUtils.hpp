@@ -35,8 +35,8 @@ namespace ft
 struct random_access_iterator_tag { };
 struct bidirectional_iterator_tag { };
 
-template <class Category, class T, class Distance = ptrdiff_t, class Pointer = T*, class Reference = T&>
-class iterator
+template <class Category, class T, class Distance = std::ptrdiff_t, class Pointer = T*, class Reference = T&>
+class Iterator
 {
 	public:
 		typedef T			value_type;
@@ -59,16 +59,17 @@ struct iterator_traits
 template <class T>
 struct iterator_traits<T*>
 {
-	typedef ptrdiff_t						difference_type;
+	typedef std::ptrdiff_t					difference_type;
 	typedef T								value_type;
 	typedef T*								pointer;
 	typedef T&								reference;
-	typedef ft::random_access_iterator_tag 	iterator_category;
+	typedef ft::random_access_iterator_tag	iterator_category;
 };
 
-template <class T> class iterator_traits<const T*>
+template <class T>
+class iterator_traits<const T*>
 {
-	typedef ptrdiff_t						difference_type;
+	typedef std::ptrdiff_t					difference_type;
 	typedef T								value_type;
 	typedef const T*						pointer;
 	typedef const T&						reference;
@@ -89,17 +90,17 @@ typename ft::iterator_traits<InputIterator>::difference_type
 }
 
 template <class T>
-class bidirectional_iterator : ft::iterator<ft::bidirectional_iterator_tag, T>
+class bidirectional_iterator : ft::Iterator<ft::bidirectional_iterator_tag, T>
 {
-	typedef typename ft::iterator<ft::bidirectional_iterator_tag, T>::iterator_category     iterator_category;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::iterator_category     iterator_category;
 
-	typedef typename ft::iterator<ft::bidirectional_iterator_tag, T>::value_type            value_type;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::value_type            value_type;
 
-	typedef typename ft::iterator<ft::bidirectional_iterator_tag, T>::difference_type       difference_type;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::difference_type       difference_type;
 
-	typedef typename ft::iterator<ft::bidirectional_iterator_tag, T>::pointer               pointer;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::pointer               pointer;
 
-	typedef typename ft::iterator<ft::bidirectional_iterator_tag, T>::reference             reference;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::reference             reference;
 
 	private:
 		pointer _elem;

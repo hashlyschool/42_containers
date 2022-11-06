@@ -11,9 +11,8 @@
 
 #include "./iterators/RandomAccessIterator.hpp"
 #include "./iterators/ReverseIterator.hpp"
-
+#include "./utils/is_integer.hpp"
 #include <stdexcept>
-
 
 namespace ft {
 
@@ -36,33 +35,67 @@ class vector {
 public:
 	typedef	T											value_type;
 	typedef	Allocator									allocator_type;
-	typedef	std::size_t									size_type;
-	typedef	std::ptrdiff_t								difference_type;
-	typedef	value_type&									reference;
-	typedef	const value_type&							const_reference;
-	typedef	typename Allocator::pointer					pointer;
-	typedef	typename Allocator::const_pointer			const_pointer;
+	typedef typename allocator_type::size_type			size_type;
 	typedef	ft::RandomAccessIterator<value_type>		iterator;
 	typedef	ft::RandomAccessIterator<const value_type>	const_iterator;
-	typedef	ft::reverse_iterator<const_iterator>		const_reverse_iterator;
-	typedef	ft::reverse_iterator<iterator>				reverse_iterator;
+	typedef typename ft::iterator_traits<iterator>::difference_type	difference_type;
+	typedef typename allocator_type::reference			reference;
+	typedef typename allocator_type::const_reference	const_reference;
+	typedef	typename Allocator::pointer					pointer;
+	typedef	typename Allocator::const_pointer			const_pointer;
+	typedef	ft::ReverseIterator<iterator>				reverse_iterator;
+	typedef	ft::ReverseIterator<const_iterator>		const_reverse_iterator;
 
 private:
-	value_type*		_first;
+	pointer		_first;
 	size_type		_size, _capacity;
 	allocator_type	_allocator;
 public:
 
-	explicit vector (const allocator_type& alloc = allocator_type()) : _first(0), _size(0), _capacity(0), _allocator(alloc) {}
+	explicit vector (const allocator_type& alloc = allocator_type())
+	:
+		_first(u_nullptr),
+		_size(0),
+		_capacity(0),
+		_allocator(alloc)
+	{}
 
-	explicit vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()) : _size(n), _capacity(n), _allocator(alloc) {
+	explicit vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type())
+	:
+		_size(n),
+		_capacity(n),
+		_allocator(alloc)
+	{
+		fill_initialize(n, val);
+	}
+
+	void	fill_initialize(size_type n, const value_type& val) {
 		_first = _allocator.allocate(n);
 		for (size_type i = 0; i < n; ++i)
 			_allocator.construct(_first + i, val);
 	}
 
 	template <class InputIterator>
-	vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type()) : _allocator(alloc) {
+	vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type())
+	:
+		_allocator(alloc)
+	{
+		typedef typename ft::is_integer<InputIterator>::type Integral;
+		initialize_dispatch(first, last, Integral());
+	}
+
+	template<typename Integer>
+	void	initialize_dispatch(Integer n, Integer val, true_type)
+	{
+		this->_size = static_cast<size_type>(n);
+		this->_capacity = static_cast<size_type>(n);
+		this->_first = u_nullptr;
+		fill_initialize(static_cast<size_type>(n), val);
+	}
+
+	template<typename InputIterator>
+	void	initialize_dispatch(InputIterator first, InputIterator last, false_type)
+	{
 		if (first > last)
 			throw std::length_error("vector");
 		_size = last - first;
@@ -72,7 +105,11 @@ public:
 			_allocator.construct(_first + i, *(first + i));
 	}
 
-	vector(const vector& x) : _size(0), _capacity(0) {
+	vector(const vector& x)
+	:
+		_size(0),
+		_capacity(0)
+	{
 		*this = x;
 	}
 
@@ -192,8 +229,30 @@ public:
 	value_type* data() { return (_first); }
 	const value_type* data() const { return (_first); }
 
+	///ASSIGN
+
+	void assign (size_type n, const value_type& val) {
+		fill_assign(n, val);
+	}
+
 	template <class InputIterator>
-	void	assign (InputIterator first, InputIterator last) {
+	void	assign(InputIterator first, InputIterator last) {
+		typedef typename ft::is_integer<InputIterator>::type Integral;
+		assign_dispatch(first, last, Integral());
+	}
+
+	template<typename Integer>
+	void	assign_dispatch(Integer n, Integer val, true_type) {
+		fill_assign(n, val);
+	}
+
+	template<typename InputIterator>
+	void	assign_dispatch(InputIterator first, InputIterator last, false_type) {
+		assign_aux(first, last);
+	}
+
+	template<typename InputIterator>
+	void	assign_aux(InputIterator first, InputIterator last) {
 		if (first > last)
 			throw std::logic_error("vector");
 		difference_type	count = last - first;
@@ -203,13 +262,21 @@ public:
 			_first = _allocator.allocate(count);
 			_capacity = count;
 		}
-		for (iterator it = first; it < last; ++it)
-			_allocator.construct(&(*it), *it);
+		iterator pos = begin();
+		while (first < last)
+		{
+			_allocator.construct(&(*pos), *first);
+			pos++;
+			first++;
+		}
 		_size = count;
 	}
 
-	void assign (size_type n, const value_type& val) {
-		clear();
+	void	fill_assign(size_type n, const value_type& val)
+	{
+		this->clear();
+		if (n == 0)
+			return ;
 		if (n > _capacity) {
 			_allocator.deallocate(_first, _capacity);
 			_first = _allocator.allocate(n);
@@ -219,6 +286,8 @@ public:
 			_allocator.construct(_first + i, val);
 		_size = n;
 	}
+
+	///PUSH
 
 	void	push_back(const value_type& val) {
 		if(_size == _capacity)
@@ -254,7 +323,7 @@ public:
 			_first = newarr;
 		}
 		else {
-			for (size_type i = _size; i > static_cast<difference_type>(start); --i) {
+			for (size_type i = _size; i > static_cast<size_type>(start); --i) {
 				_allocator.destroy(_first + i);
 				_allocator.construct(_first + i, *(_first + i - 1));
 			}
@@ -266,6 +335,10 @@ public:
 	}
 
 	void insert (iterator position, size_type n, const value_type& val) {
+		fill_insert(position, n, val);
+	}
+
+	void	fill_insert(iterator position, size_type n, const value_type& val) {
 		if (n == 0)
 			return ;
 		else if (max_size() - _size < n)
@@ -447,7 +520,7 @@ bool operator>= (const vector<T, Alloc>& lhs, const vector<T, Alloc>& rhs)
 
 } // namespace ft
 
-/// @brief standart STL namespace
+/// @brief STL namespace
 namespace std
 {
 
@@ -460,4 +533,3 @@ void swap(ft::vector<T,Alloc>& lhs, ft::vector<T,Alloc>& rhs )
 } // namespace std
 
 #endif
-

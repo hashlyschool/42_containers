@@ -16,19 +16,24 @@ namespace ft
 {
 
 template <typename T>
-class RandomAccessIterator : ft::iterator<ft::random_access_iterator_tag, T>
+class RandomAccessIterator : ft::Iterator<ft::random_access_iterator_tag, T>
 {
 	public:
-		typedef typename ft::iterator<ft::random_access_iterator_tag, T>::iterator_category	iterator_category;
+		typedef typename ft::Iterator<ft::random_access_iterator_tag, T>::iterator_category	iterator_category;
 
-		typedef typename ft::iterator<ft::random_access_iterator_tag, T>::value_type	value_type;
+		typedef typename ft::Iterator<ft::random_access_iterator_tag, T>::value_type	value_type;
 
-		typedef typename ft::iterator<ft::random_access_iterator_tag, T>::difference_type	difference_type;
+		typedef typename ft::Iterator<ft::random_access_iterator_tag, T>::difference_type	difference_type;
 
 		typedef T*	pointer;
 		typedef T&	reference;
 
 		RandomAccessIterator(void) : _elem(u_nullptr) {}
+
+		RandomAccessIterator(pointer elem)
+		:
+			_elem(elem)
+		{}
 
 		RandomAccessIterator(const RandomAccessIterator& op) : _elem(op._elem) {}
 
@@ -88,7 +93,9 @@ class RandomAccessIterator : ft::iterator<ft::random_access_iterator_tag, T>
 			return (*this);
 		}
 
-		reference operator[](difference_type n) { return (*(operator+(n))); }
+		reference operator[](difference_type n) {
+			return (*(operator+(n)));
+		}
 
 		operator RandomAccessIterator<const T> () const {
 			return (RandomAccessIterator<const T>(this->_elem));

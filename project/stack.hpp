@@ -12,7 +12,7 @@
 #ifndef FT_STACK_HPP
 # define FT_STACK_HPP
 
-# include "./Vector.hpp"
+# include "./vector.hpp"
 
 /// @brief custom namespace for school project's
 namespace ft

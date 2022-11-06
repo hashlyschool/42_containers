@@ -1,16 +1,17 @@
 NAME			=	containers_test
 
 RM				=	rm -rf
-CC				=	g++
+CC				=	clang++
 OPTFLAGS		=	-g -fsanitize=address
 FLAGS			=	-std=c++98 -Wall -Wextra -Werror -pedantic -MMD -MP
 
 #Include file's
-INCS_FILES		=	Stack.hpp \
-					Vector.hpp \
+INCS_FILES		=	stack.hpp \
+					vector.hpp \
 					iterators/ReverseIterator.hpp \
 					iterators/IteratorUtils.hpp \
-					iterators/RandomAccessIterator.hpp
+					iterators/RandomAccessIterator.hpp \
+					utils/is_integer.hpp
 
 #Source file's
 SOURCE_FILES	=	main.cpp
