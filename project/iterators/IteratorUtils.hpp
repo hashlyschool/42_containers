@@ -135,5 +135,17 @@ bool lexicographical_compare (InputIterator1 first1, InputIterator1 last1,
 	return (first2 != last2);
 }
 
+template <class Ite>
+size_t	itlen(Ite first, Ite last) {
+	size_t	i = 0;
+
+	while (first != last)
+	{
+		++first;
+		++i;
+	}
+	return (i);
+}
+
 } // namespace ft
 #endif

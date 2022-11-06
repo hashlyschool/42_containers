@@ -304,8 +304,9 @@ public:
 	}
 
 
-	//INSERT
-	iterator insert (iterator position, const value_type& val) {
+	///INSERT
+
+	iterator insert(iterator position, const value_type& val) {
 		if (position < begin() || position > end())
 			throw std::logic_error("vector");
 		difference_type start = position - begin();
@@ -334,7 +335,7 @@ public:
 		return (begin() + start);
 	}
 
-	void insert (iterator position, size_type n, const value_type& val) {
+	void insert(iterator position, size_type n, const value_type& val) {
 		fill_insert(position, n, val);
 	}
 
@@ -352,7 +353,7 @@ public:
 			std::uninitialized_copy(begin(), position, iterator(new_arr));
 			for (size_type i = 0; i < n; ++i)
 				_allocator.construct(new_arr + start + i, val);
-			std::uninitialized_copy(position + n, end(), iterator(new_arr + start + n));
+			std::uninitialized_copy(position, end(), iterator(new_arr + start + n));
 			for (size_type i = 0; i < _size; ++i)
 				_allocator.destroy(_first + i);
 			if (_capacity)
@@ -375,7 +376,20 @@ public:
 	}
 
 	template <class InputIterator>
-	void insert (iterator position, InputIterator first, InputIterator last) {
+	void insert(iterator position, InputIterator first, InputIterator last) {
+		typedef typename ft::is_integer<InputIterator>::type	Integral;
+		insert_dispatch(position, first, last, Integral());
+	}
+
+	template<typename Integer>
+	void	insert_dispatch(iterator position, Integer n, Integer val, true_type)
+	{
+		fill_insert(position, n, val);
+	}
+
+	template<typename InputIterator>
+	void	insert_dispatch(iterator position, InputIterator first, InputIterator last, false_type)
+	{
 		if (position < begin() || position > end() || first > last)
 			throw std::logic_error("vector");
 		size_type start = static_cast<size_type>(position - begin());
@@ -419,10 +433,12 @@ public:
 		}
 	}
 
+	///ERASE
+
 	iterator	erase(iterator position) {
 		if (_size == 0)
 			throw std::logic_error("vector");
-		size_type d = static_cast<size_type>(std::distance(begin(), position));
+		size_type d = static_cast<size_type>(ft::itlen(begin(), position));
 		if (d > _size - 1)
 			throw std::logic_error("vector");
 		for (size_type i = d; i < _size - 1; ++i){
@@ -434,9 +450,10 @@ public:
 		return iterator(_first + d);
 	}
 
-	iterator	erase(iterator first, iterator last) {
-		difference_type start = std::distance(begin(), first);
-		difference_type need_to_copy = std::distance(last, end());
+	iterator	erase(iterator first, iterator last)
+	{
+		difference_type start = ft::itlen(begin(), first);
+		difference_type need_to_copy = ft::itlen(last, end());
 		bool last_is_end = (last == end());
 		while (first != last){
 			_allocator.destroy(&(*first));
@@ -455,6 +472,8 @@ public:
 		_size = start + need_to_copy;
 		return last_is_end ? end() : iterator(_first + start);
 	}
+
+	///SWAP
 
 	void swap(vector& x) {
 		if (x == *this)

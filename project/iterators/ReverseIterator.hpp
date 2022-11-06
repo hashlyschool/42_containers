@@ -20,12 +20,12 @@ class ReverseIterator
 {
 	public:
 
-		typedef Iterator	iterator_type;
-		typedef typename ft::iterator_traits<Iterator>::iterator_category iterator_category;
-		typedef typename ft::iterator_traits<Iterator>::value_type      value_type;
-		typedef typename ft::iterator_traits<Iterator>::difference_type     difference_type;
-		typedef typename ft::iterator_traits<Iterator>::pointer     pointer;
-		typedef typename ft::iterator_traits<Iterator>::reference   reference;
+		typedef Iterator												iterator_type;
+		typedef typename ft::iterator_traits<Iterator>::iterator_category	iterator_category;
+		typedef typename ft::iterator_traits<Iterator>::value_type		value_type;
+		typedef typename ft::iterator_traits<Iterator>::difference_type	difference_type;
+		typedef typename ft::iterator_traits<Iterator>::pointer			pointer;
+		typedef typename ft::iterator_traits<Iterator>::reference		reference;
 
 		ReverseIterator() : _elem() {}
 
@@ -179,13 +179,15 @@ typename ReverseIterator<Iterator>::difference_type operator- (
 		const ReverseIterator<Iterator>& lhs,
 		const ReverseIterator<Iterator>& rhs)
 {
-	return (lhs.base() - rhs.base());
+	return (rhs.base() - lhs.base());
 }
 
 template <class Iterator_L, class Iterator_R>
-bool operator- (const ReverseIterator<Iterator_L>& lhs, const ReverseIterator<Iterator_R>& rhs)
+typename ReverseIterator<Iterator_L>::difference_type operator-(
+	const ReverseIterator<Iterator_L>& lhs,
+	const ReverseIterator<Iterator_R>& rhs)
 {
-	return (lhs.base() - rhs.base());
+	return (rhs.base() - lhs.base());
 }
 
 } // namespace ft

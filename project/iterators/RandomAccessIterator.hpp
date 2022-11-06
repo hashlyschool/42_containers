@@ -209,7 +209,7 @@ ft::RandomAccessIterator<T> operator+(
 typename ft::RandomAccessIterator<T>::difference_type n,
 typename ft::RandomAccessIterator<T>& rai)
 {
-	return (&(*rai) + n);
+	return (rai.base() + n);
 }
 
 template <typename T>
