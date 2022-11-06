@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['bidirectional_5fiterator_1',['bidirectional_iterator',['../classft_1_1bidirectional__iterator.html',1,'ft']]],
-  ['bidirectional_5fiterator_5ftag_2',['bidirectional_iterator_tag',['../structft_1_1bidirectional__iterator__tag.html',1,'ft']]]
+  ['assign_1',['assign',['../classft_1_1vector.html#ac846f9829297f6997b6525ac86abbd03',1,'ft::vector']]]
 ];

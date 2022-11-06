@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d_54',['operator=',['../classft_1_1stack.html#a4c4d1d0772493ee7cac086105dc01672',1,'ft::stack']]]
+  ['insert_56',['insert',['../classft_1_1vector.html#a85bd6f3cbc99672eb57ad276233231fe',1,'ft::vector']]]
 ];

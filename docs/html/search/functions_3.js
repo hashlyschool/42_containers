@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['pop_55',['pop',['../classft_1_1stack.html#ae62ad1bfcd17122fdf6e9c5f58a5e474',1,'ft::stack']]],
-  ['push_56',['push',['../classft_1_1stack.html#a1fd7220db05e24583ad377f216b50685',1,'ft::stack']]]
+  ['main_57',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]]
 ];

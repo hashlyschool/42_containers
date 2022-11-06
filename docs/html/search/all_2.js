@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['empty_3',['empty',['../classft_1_1stack.html#a2938f65bd2da8fcc7b19c876a96a39d2',1,'ft::stack']]]
+  ['bidirectional_5fiterator_2',['bidirectional_iterator',['../classft_1_1bidirectional__iterator.html',1,'ft']]],
+  ['bidirectional_5fiterator_5ftag_3',['bidirectional_iterator_tag',['../structft_1_1bidirectional__iterator__tag.html',1,'ft']]]
 ];

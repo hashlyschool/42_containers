@@ -1,6 +1,6 @@
 <map id="/home/ilya/School/git/42_containers/project/iterators/ReverseIterator.hpp" name="/home/ilya/School/git/42_containers/project/iterators/ReverseIterator.hpp">
 <area shape="rect" id="node1" title="реализация reverse_iterator." alt="" coords="42,5,255,61"/>
-<area shape="rect" id="node2" href="$Vector_8hpp.html" title="file brief" alt="" coords="65,109,232,165"/>
-<area shape="rect" id="node3" href="$Stack_8hpp.html" title="custom std::stack" alt="" coords="5,213,172,269"/>
+<area shape="rect" id="node2" href="$vector_8hpp_source.html" title=" " alt="" coords="65,109,232,165"/>
+<area shape="rect" id="node3" href="$stack_8hpp_source.html" title=" " alt="" coords="5,213,172,269"/>
 <area shape="rect" id="node4" href="$main_8cpp.html" title="file for testing custom containers" alt="" coords="107,317,190,344"/>
 </map>

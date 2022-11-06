@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['empty_52',['empty',['../classft_1_1stack.html#a2938f65bd2da8fcc7b19c876a96a39d2',1,'ft::stack']]]
+  ['assign_53',['assign',['../classft_1_1vector.html#ac846f9829297f6997b6525ac86abbd03',1,'ft::vector']]]
 ];

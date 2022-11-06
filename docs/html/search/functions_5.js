@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['testingstack_59',['testingStack',['../main_8cpp.html#ae8151498932c93b40c10f8fbf2ad479f',1,'main.cpp']]],
-  ['top_60',['top',['../classft_1_1stack.html#a59d94b0aaa5b5709b8c61e581f2c050a',1,'ft::stack::top()'],['../classft_1_1stack.html#ac07fa0df406882545c9cd08066ccb2e6',1,'ft::stack::top() const']]]
+  ['pop_59',['pop',['../classft_1_1stack.html#ae62ad1bfcd17122fdf6e9c5f58a5e474',1,'ft::stack']]],
+  ['push_60',['push',['../classft_1_1stack.html#a1fd7220db05e24583ad377f216b50685',1,'ft::stack']]],
+  ['push_5fback_61',['push_back',['../classft_1_1vector.html#ad9e8cee02308801372d05eec9303ab30',1,'ft::vector']]]
 ];
