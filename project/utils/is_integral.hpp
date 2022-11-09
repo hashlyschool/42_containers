@@ -1,3 +1,12 @@
+/*!
+ * @file is_integral.hpp
+ * @author INikituk (inikituk@npomis.ru)
+ * @brief
+ * @version 1.0
+ * @date 2022-11-09
+ * @copyright Flex copyright (c) 2022
+ */
+
 #pragma once
 
 namespace ft {
@@ -6,35 +15,35 @@ struct	true_type { };
 struct	false_type { };
 
 template<typename T>
-struct is_integer
+struct is_integral
 {
 	enum { value = 0 };
 	typedef false_type type;
 };
 
 template<>
-struct is_integer<bool>
+struct is_integral<bool>
 {
 	enum { value = 1 };
 	typedef true_type type;
 };
 
 template<>
-struct is_integer<char>
+struct is_integral<char>
 {
 	enum { value = 1 };
 	typedef true_type type;
 };
 
 template<>
-struct is_integer<signed char>
+struct is_integral<signed char>
 {
 	enum { value = 1 };
 	typedef true_type type;
 };
 
 template<>
-struct is_integer<unsigned char>
+struct is_integral<unsigned char>
 {
 	enum { value = 1 };
 	typedef true_type type;
@@ -42,7 +51,7 @@ struct is_integer<unsigned char>
 
 # ifdef __WCHAR_TYPE__
 template<>
-struct is_integer<wchar_t>
+struct is_integral<wchar_t>
 {
 	enum { value = 1 };
 	typedef true_type type;
@@ -51,64 +60,64 @@ struct is_integer<wchar_t>
 
 #ifdef _GLIBCXX_USE_CHAR8_T
 template<>
-struct is_integer<char8_t>
-{is_integer
+struct is_integral<char8_t>
+{is_integral
 	enum { value = 1 };
 	typedef true_type type;
 };
 #endif
 
 template<>
-struct is_integer<short>
+struct is_integral<short>
 {
 	enum { value = 1 };
 	typedef true_type type;
 };
 
 template<>
-struct is_integer<unsigned short>
+struct is_integral<unsigned short>
 {
 	enum { value = 1 };
 	typedef true_type type;
 };
 
 template<>
-struct is_integer<int>
+struct is_integral<int>
 {
 	enum { value = 1 };
 	typedef true_type type;
 };
 
 template<>
-struct is_integer<unsigned int>
+struct is_integral<unsigned int>
 {
 	enum { value = 1 };
 	typedef true_type type;
 };
 
 template<>
-struct is_integer<long>
+struct is_integral<long>
 {
 	enum { value = 1 };
 	typedef true_type type;
 };
 
 template<>
-struct is_integer<unsigned long>
+struct is_integral<unsigned long>
 {
 	enum { value = 1 };
 	typedef true_type type;
 };
 
 // template<>
-// struct is_integer<long long>
+// struct is_integral<long long>
 // {
 // 	enum { value = 1 };
 // 	typedef true_type type;
 // };
 
 // template<>
-// struct is_integer<unsigned long long>
+// struct is_integral<unsigned long long>
 // {
 // 	enum { value = 1 };
 // 	typedef true_type type;
@@ -116,13 +125,13 @@ struct is_integer<unsigned long>
 
 #define __INT_N(TYPE) 			\
 template<>				\
-struct is_integer<TYPE>		\
+struct is_integral<TYPE>		\
 {					\
 	enum { value = 1 };		\
 	typedef true_type type;	\
 };					\
 template<>				\
-struct is_integer<unsigned TYPE>	\
+struct is_integral<unsigned TYPE>	\
 {					\
 	enum { value = 1 };		\
 	typedef true_type type;	\

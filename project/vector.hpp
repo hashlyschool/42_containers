@@ -9,10 +9,14 @@
 #ifndef FT_VECTOR_HPP
 # define FT_VECTOR_HPP
 
+#include <stdexcept>
+#include <limits>
+
 #include "./iterators/RandomAccessIterator.hpp"
 #include "./iterators/ReverseIterator.hpp"
-#include "./utils/is_integer.hpp"
-#include <stdexcept>
+#include "./utils/is_integral.hpp"
+#include "./utils/equal.hpp"
+#include "./utils/enable_if.hpp"
 
 namespace ft {
 
@@ -69,21 +73,25 @@ public:
 		fill_initialize(n, val);
 	}
 
+	private:
 	void	fill_initialize(size_type n, const value_type& val) {
 		_first = _allocator.allocate(n);
 		for (size_type i = 0; i < n; ++i)
 			_allocator.construct(_first + i, val);
 	}
 
+	public:
 	template <class InputIterator>
-	vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type())
+	vector (typename ft::enable_if<!std::numeric_limits<InputIterator>::is_integer, InputIterator>::type first, InputIterator last, const allocator_type& alloc = allocator_type())
 	:
 		_allocator(alloc)
 	{
-		typedef typename ft::is_integer<InputIterator>::type Integral;
-		initialize_dispatch(first, last, Integral());
+		initialize_dispatch(first, last, false_type());
+		// typedef typename ft::is_integral<InputIterator>::type Integral;
+		// initialize_dispatch(first, last, Integral());
 	}
 
+	private:
 	template<typename Integer>
 	void	initialize_dispatch(Integer n, Integer val, true_type)
 	{
@@ -105,6 +113,7 @@ public:
 			_allocator.construct(_first + i, *(first + i));
 	}
 
+	public:
 	vector(const vector& x)
 	:
 		_size(0),
@@ -237,10 +246,11 @@ public:
 
 	template <class InputIterator>
 	void	assign(InputIterator first, InputIterator last) {
-		typedef typename ft::is_integer<InputIterator>::type Integral;
+		typedef typename ft::is_integral<InputIterator>::type Integral;
 		assign_dispatch(first, last, Integral());
 	}
 
+	private:
 	template<typename Integer>
 	void	assign_dispatch(Integer n, Integer val, true_type) {
 		fill_assign(n, val);
@@ -289,6 +299,7 @@ public:
 
 	///PUSH
 
+	public:
 	void	push_back(const value_type& val) {
 		if(_size == _capacity)
 			reserve(_capacity == 0 ? 1 : _capacity * 2);
@@ -339,6 +350,7 @@ public:
 		fill_insert(position, n, val);
 	}
 
+	private:
 	void	fill_insert(iterator position, size_type n, const value_type& val) {
 		if (n == 0)
 			return ;
@@ -375,12 +387,14 @@ public:
 		}
 	}
 
+	public:
 	template <class InputIterator>
 	void insert(iterator position, InputIterator first, InputIterator last) {
-		typedef typename ft::is_integer<InputIterator>::type	Integral;
+		typedef typename ft::is_integral<InputIterator>::type	Integral;
 		insert_dispatch(position, first, last, Integral());
 	}
 
+	private:
 	template<typename Integer>
 	void	insert_dispatch(iterator position, Integer n, Integer val, true_type)
 	{
@@ -435,6 +449,7 @@ public:
 
 	///ERASE
 
+	public:
 	iterator	erase(iterator position) {
 		if (_size == 0)
 			throw std::logic_error("vector");
@@ -500,11 +515,8 @@ template <class T, class Alloc>
 bool operator== (const ft::vector<T, Alloc>& lhs, const ft::vector<T, Alloc>& rhs)
 {
 	if (lhs.size() != rhs.size())
-		return (false);
-	for (std::size_t i = 0; i < rhs.size(); i++)
-		if (lhs[i] != rhs[i])
-			return false;
-	return true;
+		return false;
+	return (ft::equal(lhs.begin(), lhs.end(), rhs.begin()));
 }
 
 template <class T, class Alloc>

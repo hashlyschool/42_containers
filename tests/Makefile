@@ -11,7 +11,7 @@ INCS_FILES		=	stack.hpp \
 					iterators/ReverseIterator.hpp \
 					iterators/IteratorUtils.hpp \
 					iterators/RandomAccessIterator.hpp \
-					utils/is_integer.hpp
+					utils/is_integral.hpp
 
 #Source file's
 SOURCE_FILES	=	main.cpp

@@ -108,5 +108,11 @@ int	main()
 	testingVector();
 	std::vector<int> vct;
 	// vct.assign();
+	ft::vector<int>::iterator iter;
+	ft::vector<int>::const_iterator const_iter;
+	//должно работать
+	const_iter = iter;
+	//не должно работать
+	// iter = const_iter;
 	return (0);
 }
