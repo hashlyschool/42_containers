@@ -14,6 +14,7 @@
 #include <stack>
 #include <iostream>
 #include <vector>
+#include <map>
 
 /*!
  * @brief function for testing custom stack

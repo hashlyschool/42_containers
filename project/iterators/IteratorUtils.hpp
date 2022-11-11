@@ -92,15 +92,15 @@ typename ft::iterator_traits<InputIterator>::difference_type
 template <class T>
 class bidirectional_iterator : ft::Iterator<ft::bidirectional_iterator_tag, T>
 {
-	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::iterator_category     iterator_category;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::iterator_category	iterator_category;
 
-	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::value_type            value_type;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::value_type		value_type;
 
-	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::difference_type       difference_type;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::difference_type	difference_type;
 
-	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::pointer               pointer;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::pointer			pointer;
 
-	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::reference             reference;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::reference			reference;
 
 	private:
 		pointer _elem;
@@ -146,6 +146,37 @@ size_t	itlen(Ite first, Ite last) {
 	}
 	return (i);
 }
+
+template <class Data_T>
+struct Doubly_Linked_Node
+{
+	public :
+
+		Doubly_Linked_Node	*prev;
+		Doubly_Linked_Node	*next;
+		Data_T				data;
+
+		Doubly_Linked_Node()
+		:
+			prev(u_nullptr),
+			next(u_nullptr)
+		{}
+
+		Doubly_Linked_Node(const Data_T& val)
+		:
+			prev(u_nullptr),
+			next(u_nullptr),
+			data(val)
+		{}
+
+		Doubly_Linked_Node(const Data_T& val,
+			Doubly_Linked_Node *prev, Doubly_Linked_Node *next)
+		:
+			prev(prev),
+			next(next),
+			data(val)
+		{}
+};
 
 } // namespace ft
 #endif
