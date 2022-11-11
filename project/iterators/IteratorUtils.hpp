@@ -35,9 +35,6 @@ namespace ft
 
 struct random_access_iterator_tag { };
 struct bidirectional_iterator_tag { };
-struct forward_iterator_tag { };
-struct input_iterator_tag { };
-struct output_iterator_tag { };
 
 template <class Category, class T, class Distance = std::ptrdiff_t, class Pointer = T*, class Reference = T&>
 class Iterator
@@ -151,73 +148,41 @@ size_t	itlen(Ite first, Ite last) {
 	return (i);
 }
 
-template <class Data_T>
-struct Doubly_Linked_Node
-{
-	public :
-
-		Doubly_Linked_Node	*prev;
-		Doubly_Linked_Node	*next;
-		Data_T				data;
-
-		Doubly_Linked_Node()
-		:
-			prev(u_nullptr),
-			next(u_nullptr)
-		{}
-
-		Doubly_Linked_Node(const Data_T& val)
-		:
-			prev(u_nullptr),
-			next(u_nullptr),
-			data(val)
-		{}
-
-		Doubly_Linked_Node(const Data_T& val,
-			Doubly_Linked_Node *prev, Doubly_Linked_Node *next)
-		:
-			prev(prev),
-			next(next),
-			data(val)
-		{}
-};
-
-template <bool is_valid, typename T>
-struct valid_iterator_tag_res { typedef T type; const static bool value = is_valid; };
-
-
 template <typename T>
-struct is_input_iterator_tagged : public valid_iterator_tag_res<false, T> { };
-
-template <>
-struct is_input_iterator_tagged<ft::random_access_iterator_tag>
-	: public valid_iterator_tag_res<true, ft::random_access_iterator_tag> { };
-
-template <>
-struct is_input_iterator_tagged<ft::bidirectional_iterator_tag>
-	: public valid_iterator_tag_res<true, ft::bidirectional_iterator_tag> { };
-
-template <>
-struct is_input_iterator_tagged<ft::forward_iterator_tag>
-	: public valid_iterator_tag_res<true, ft::forward_iterator_tag> { };
-
-template <>
-struct is_input_iterator_tagged<ft::input_iterator_tag>
-	: public valid_iterator_tag_res<true, ft::input_iterator_tag> { };
-
-template <typename T>
-class InvalidIteratorException : public std::exception
+struct	mapNode
 {
 	private:
-		std::string _msg;
+	bool _unused;
+	int _unused_for_linux;
 
-	public :
-		InvalidIteratorException () throw() { _msg = "Is invalid iterator tag : " + std::string(typeid(T).name()); }
-		InvalidIteratorException (const InvalidIteratorException&) throw() {}
-		InvalidIteratorException& operator= (const InvalidIteratorException&) throw() {}
-		virtual ~InvalidIteratorException() throw() {}
-		virtual const char* what() const throw() { return (_msg.c_str()); }
+	public:
+	T			data;
+	mapNode		*parent;
+	mapNode		*left;
+	mapNode		*right;
+
+	mapNode(const T &src = T())
+	:
+		data(src),
+		parent(NULL),
+		left(NULL),
+		right(NULL)
+	{};
 };
+
+template <typename T>
+mapNode<T>	*farRight(mapNode<T> *node) {
+	while (node->right != NULL)
+		node = node->right;
+	return (node);
+}
+
+template <typename T>
+mapNode<T>	*farLeft(mapNode<T> *node) {
+	while (node->left != NULL)
+		node = node->left;
+	return (node);
+}
 
 } // namespace ft
 
