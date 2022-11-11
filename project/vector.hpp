@@ -9,14 +9,11 @@
 #ifndef FT_VECTOR_HPP
 # define FT_VECTOR_HPP
 
-#include <stdexcept>
 #include <limits>
 
 #include "./iterators/RandomAccessIterator.hpp"
 #include "./iterators/ReverseIterator.hpp"
-#include "./utils/is_integral.hpp"
-#include "./utils/equal.hpp"
-#include "./utils/enable_if.hpp"
+#include "./utils/utils_include.hpp"
 
 namespace ft {
 

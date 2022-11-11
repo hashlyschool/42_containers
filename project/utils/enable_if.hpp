@@ -1,6 +1,6 @@
 /*!
  * @file enable_if.hpp
- * @author INikituk (inikituk@npomis.ru)
+ * @author hashly (ilya12-141998@mail.ru)
  * @brief custom implementation std::enable_if
  * @version 1.0
  * @date 2022-11-09
