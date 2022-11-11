@@ -1,6 +1,6 @@
 /*!
  * @file is_integral.hpp
- * @author INikituk (inikituk@npomis.ru)
+ * @author hashly (ilya12-141998@mail.ru)
  * @brief
  * @version 1.0
  * @date 2022-11-09
