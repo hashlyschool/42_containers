@@ -12,6 +12,7 @@
 # define FT_ITERATOR_UTILS_HPP
 
 #include <memory>
+#include <typeinfo>
 #include <cstddef>
 
 static class nullptr_t
@@ -34,6 +35,9 @@ namespace ft
 
 struct random_access_iterator_tag { };
 struct bidirectional_iterator_tag { };
+struct forward_iterator_tag { };
+struct input_iterator_tag { };
+struct output_iterator_tag { };
 
 template <class Category, class T, class Distance = std::ptrdiff_t, class Pointer = T*, class Reference = T&>
 class Iterator
@@ -178,5 +182,43 @@ struct Doubly_Linked_Node
 		{}
 };
 
+template <bool is_valid, typename T>
+struct valid_iterator_tag_res { typedef T type; const static bool value = is_valid; };
+
+
+template <typename T>
+struct is_input_iterator_tagged : public valid_iterator_tag_res<false, T> { };
+
+template <>
+struct is_input_iterator_tagged<ft::random_access_iterator_tag>
+	: public valid_iterator_tag_res<true, ft::random_access_iterator_tag> { };
+
+template <>
+struct is_input_iterator_tagged<ft::bidirectional_iterator_tag>
+	: public valid_iterator_tag_res<true, ft::bidirectional_iterator_tag> { };
+
+template <>
+struct is_input_iterator_tagged<ft::forward_iterator_tag>
+	: public valid_iterator_tag_res<true, ft::forward_iterator_tag> { };
+
+template <>
+struct is_input_iterator_tagged<ft::input_iterator_tag>
+	: public valid_iterator_tag_res<true, ft::input_iterator_tag> { };
+
+template <typename T>
+class InvalidIteratorException : public std::exception
+{
+	private:
+		std::string _msg;
+
+	public :
+		InvalidIteratorException () throw() { _msg = "Is invalid iterator tag : " + std::string(typeid(T).name()); }
+		InvalidIteratorException (const InvalidIteratorException&) throw() {}
+		InvalidIteratorException& operator= (const InvalidIteratorException&) throw() {}
+		virtual ~InvalidIteratorException() throw() {}
+		virtual const char* what() const throw() { return (_msg.c_str()); }
+};
+
 } // namespace ft
+
 #endif
