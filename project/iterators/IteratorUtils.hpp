@@ -152,8 +152,8 @@ template <typename T>
 struct	mapNode
 {
 	private:
-	bool _unused;
-	int _unused_for_linux;
+	// bool _unused;
+	// int _unused_for_linux;
 
 	public:
 	T			data;

@@ -13,12 +13,15 @@
 namespace ft {
 
 template <typename T, typename node_type>
-class RedBlackIterator {
+class RedBlackIterator
+{
 	protected:
 		node_type						*_node;
 		RedBlackIterator(node_type		*src);
 
 	public:
+
+		typedef ft::bidirectional_iterator_tag iterator_category;
 		typedef T						value_type;
 		typedef ptrdiff_t				difference_type;
 		typedef value_type&				reference;

@@ -34,6 +34,19 @@ public:
 	typedef ft::pair<key_type, mapped_type>				value_type;
 	typedef Compare										key_compare;
 
+	class												value_compare
+	{
+		public:
+		Compare comp;
+		value_compare(Compare c) : comp(c) { };
+
+		typedef bool		result_type;
+		typedef value_type	first_argument_type;
+		typedef value_type	second_argument_type;
+		bool	operator()(const value_type &x, const value_type &y) const {
+			return comp(x.first, y.first);
+		}
+	};
 
 	typedef Alloc										allocator_type;
 	typedef typename allocator_type::reference			reference;
@@ -46,12 +59,11 @@ public:
 
 	typedef ft::RedBlackIterator<value_type, node_type>			iterator;
 	typedef ft::RedBlackIterator<const value_type, node_type>	const_iterator;
-	typedef typename ft::ReverseIterator<iterator>		reverse_iterator;
+	typedef typename ft::ReverseIterator<iterator>			reverse_iterator;
 	typedef typename ft::ReverseIterator<const_iterator>	const_reverse_iterator;
 
 	typedef typename ft::iterator_traits<iterator>::difference_type	difference_type;
 	typedef size_t										size_type;
-
 
 private:
 	node_ptr				_data;
@@ -61,20 +73,6 @@ private:
 	const static size_type	_max_size;
 
 public:
-	class value_compare : ft::binary_function<value_type, value_type, bool>
-	{
-		friend class map<key_type, mapped_type, key_compare, Alloc>;
-
-		protected:
-			Compare comp;
-			value_compare (Compare c) : comp(c) {}
-
-		public:
-			bool operator() (const value_type& x, const value_type& y) const
-			{
-				return (comp(x.first, y.first));
-			}
-	};
 
 	explicit map(const key_compare &comp = key_compare(), const allocator_type &alloc = allocator_type())
 	:
@@ -409,7 +407,7 @@ private:
 		delete node;
 	}
 
-	void				_btree_add(node_ptr node)
+	void				_btree_add(node_ptr newNode)
 	{
 		node_ptr	*parent = &this->_data;
 		node_ptr	*node = &this->_data;
@@ -437,7 +435,7 @@ private:
 		}
 	}
 
-	void				_btree_rm(node_ptr node)
+	void				_btree_rm(node_ptr rmNode)
 	{
 		node_ptr	replaceNode = NULL;
 		node_ptr	*rmPlace = &this->_data;
@@ -479,21 +477,60 @@ private:
 		return (!this->_key_cmp(k1, k2) && !this->_key_cmp(k2, k1));
 	}
 
-	const typename size_type	_max_size = std::numeric_limits<difference_type>::max() (sizeof(node_type) / 2 ?: 1);
-
-	bool	operator==(const map<Key, T, Compare, Alloc> &lhs, const map<Key, T, Compare, Alloc> &rhs)
-	{
-		if (lhs.size() != rhs.size())
-			return false;
-		return (ft::equal(lhs.begin(), lhs.end(), rhs.begin()));
-	}
-
-	bool	operator!=(const map<Key, T, Compare, Alloc> &lhs, const map<Key, T, Compare, Alloc> &rhs)
-	{
-		return !(lhs == rhs);
-	}
-
 };
+
+template <class Key, class T, class Compare, class Alloc>
+const typename map<Key, T, Compare, Alloc>::size_type
+map<Key, T, Compare, Alloc>::_max_size =
+	std::numeric_limits<difference_type>::max() / (sizeof(node_type) / 2 ?: 1);
+
+template<class Key, class T, class Compare, class Alloc>
+bool	operator==(const map<Key, T, Compare, Alloc> &lhs, const map<Key, T, Compare, Alloc> &rhs)
+{
+	if (lhs.size() != rhs.size())
+		return false;
+	return (ft::equal(lhs.begin(), lhs.end(), rhs.begin()));
+}
+
+template<class Key, class T, class Compare, class Alloc>
+bool	operator!=(const map<Key, T, Compare, Alloc> &lhs, const map<Key, T, Compare, Alloc> &rhs)
+{
+	return !(lhs == rhs);
+}
+
+template <class Key, class T, class Compare, class Alloc>
+bool	operator< (const map<Key, T, Compare, Alloc> &lhs,
+					const map<Key, T, Compare, Alloc> &rhs)
+{
+	return ft::lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(), rhs.end());
+}
+
+template <class Key, class T, class Compare, class Alloc>
+bool	operator<=(const map<Key, T, Compare, Alloc> &lhs,
+					const map<Key, T, Compare, Alloc> &rhs)
+{
+	return !(rhs < lhs);
+}
+
+template <class Key, class T, class Compare, class Alloc>
+bool	operator> (const map<Key, T, Compare, Alloc> &lhs,
+					const map<Key, T, Compare, Alloc> &rhs)
+{
+	return (rhs < lhs);
+}
+
+template <class Key, class T, class Compare, class Alloc>
+bool	operator>=(const map<Key, T, Compare, Alloc> &lhs,
+					const map<Key, T, Compare, Alloc> &rhs)
+{
+	return !(lhs < rhs);
+}
+
+template <class Key, class T, class Compare, class Alloc>
+void	swap(map<Key, T, Compare, Alloc> &x, map<Key, T, Compare, Alloc> &y)
+{
+	x.swap(y);
+}
 
 }
 
