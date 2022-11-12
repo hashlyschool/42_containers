@@ -29,12 +29,12 @@ class map
 
 public:
 
-	typedef Key											key_type;
-	typedef T											mapped_type;
-	typedef ft::pair<key_type, mapped_type>				value_type;
-	typedef Compare										key_compare;
+	typedef Key								key_type;
+	typedef T								mapped_type;
+	typedef ft::pair<key_type, mapped_type>	value_type;
+	typedef Compare							key_compare;
 
-	class												value_compare
+	class									value_compare
 	{
 		public:
 		Compare comp;
@@ -125,27 +125,27 @@ public:
 		return (*this);
 	}
 
-	iterator				begin(void)
+	iterator	begin(void)
 	{
 		return iterator(farLeft(this->_data));
 	}
 
-	const_iterator			begin(void) const
+	const_iterator	begin(void) const
 	{
 		return const_iterator(farLeft(this->_data));
 	}
 
-	iterator				end(void)
+	iterator	end(void)
 	{
 		return iterator(farRight(this->_data));
 	}
 
-	const_iterator			end(void) const
+	const_iterator	end(void) const
 	{
 		return const_iterator(farRight(this->_data));
 	}
 
-	reverse_iterator		rbegin(void)
+	reverse_iterator	rbegin(void)
 	{
 		return reverse_iterator(this->end());
 	}
@@ -208,7 +208,7 @@ public:
 			this->insert(*first++);
 	}
 
-	void		erase(iterator position)
+	void	erase(iterator position)
 	{
 		this->erase(position++, position);
 	}
@@ -223,13 +223,13 @@ public:
 		return (1);
 	}
 
-	void		erase(iterator first, iterator last)
+	void	erase(iterator first, iterator last)
 	{
 		while (first != last)
 			this->_btree_rm((first++)._node);
 	}
 
-	void		swap(map &x)
+	void	swap(map &x)
 	{
 		map tmp;
 
@@ -238,7 +238,7 @@ public:
 		this->_cpy_content(tmp);
 	}
 
-	void		clear(void)
+	void	clear(void)
 	{
 		node_ptr ghost = this->end()._node;
 
@@ -260,7 +260,7 @@ public:
 		return (value_compare(key_compare()));
 	}
 
-	iterator		find(const key_type &k)
+	iterator	find(const key_type &k)
 	{
 		iterator it = this->begin(), ite = this->end();
 
@@ -286,7 +286,7 @@ public:
 		return (it);
 	}
 
-	size_type		count(const key_type &k) const
+	size_type	count(const key_type &k) const
 	{
 		const_iterator	it = this->begin(), ite = this->end();
 		size_type		res = 0;
@@ -302,7 +302,7 @@ public:
 		return (res);
 	}
 
-	iterator		lower_bound(const key_type &k)
+	iterator	lower_bound(const key_type &k)
 	{
 		iterator it = this->begin(), ite = this->end();
 
@@ -328,7 +328,7 @@ public:
 		return (it);
 	}
 
-	iterator		upper_bound(const key_type &k)
+	iterator	upper_bound(const key_type &k)
 	{
 		iterator it = this->begin(), ite = this->end();
 
@@ -363,7 +363,7 @@ public:
 		return (res);
 	}
 
-	pair<iterator,iterator>				equal_range(const key_type &k)
+	pair<iterator,iterator>	equal_range(const key_type &k)
 	{
 		pair<iterator, iterator> res;
 
@@ -398,7 +398,7 @@ private:
 		tmp = NULL;
 	}
 
-	void				_btree_clear(node_ptr node)
+	void	_btree_clear(node_ptr node)
 	{
 		if (node == NULL)
 			return ;
@@ -407,7 +407,7 @@ private:
 		delete node;
 	}
 
-	void				_btree_add(node_ptr newNode)
+	void	_btree_add(node_ptr newNode)
 	{
 		node_ptr	*parent = &this->_data;
 		node_ptr	*node = &this->_data;
@@ -435,7 +435,7 @@ private:
 		}
 	}
 
-	void				_btree_rm(node_ptr rmNode)
+	void	_btree_rm(node_ptr rmNode)
 	{
 		node_ptr	replaceNode = NULL;
 		node_ptr	*rmPlace = &this->_data;
@@ -472,7 +472,7 @@ private:
 		delete rmNode;
 	}
 
-	bool				_key_eq(const key_type &k1, const key_type &k2) const
+	bool	_key_eq(const key_type &k1, const key_type &k2) const
 	{
 		return (!this->_key_cmp(k1, k2) && !this->_key_cmp(k2, k1));
 	}
