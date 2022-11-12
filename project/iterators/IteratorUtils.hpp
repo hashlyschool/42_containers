@@ -12,6 +12,7 @@
 # define FT_ITERATOR_UTILS_HPP
 
 #include <memory>
+#include <typeinfo>
 #include <cstddef>
 
 static class nullptr_t
@@ -92,15 +93,15 @@ typename ft::iterator_traits<InputIterator>::difference_type
 template <class T>
 class bidirectional_iterator : ft::Iterator<ft::bidirectional_iterator_tag, T>
 {
-	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::iterator_category     iterator_category;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::iterator_category	iterator_category;
 
-	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::value_type            value_type;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::value_type		value_type;
 
-	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::difference_type       difference_type;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::difference_type	difference_type;
 
-	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::pointer               pointer;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::pointer			pointer;
 
-	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::reference             reference;
+	typedef typename ft::Iterator<ft::bidirectional_iterator_tag, T>::reference			reference;
 
 	private:
 		pointer _elem;
@@ -147,5 +148,42 @@ size_t	itlen(Ite first, Ite last) {
 	return (i);
 }
 
+template <typename T>
+struct	mapNode
+{
+	private:
+	// bool _unused;
+	// int _unused_for_linux;
+
+	public:
+	T			data;
+	mapNode		*parent;
+	mapNode		*left;
+	mapNode		*right;
+
+	mapNode(const T &src = T())
+	:
+		data(src),
+		parent(NULL),
+		left(NULL),
+		right(NULL)
+	{};
+};
+
+template <typename T>
+mapNode<T>	*farRight(mapNode<T> *node) {
+	while (node->right != NULL)
+		node = node->right;
+	return (node);
+}
+
+template <typename T>
+mapNode<T>	*farLeft(mapNode<T> *node) {
+	while (node->left != NULL)
+		node = node->left;
+	return (node);
+}
+
 } // namespace ft
+
 #endif

@@ -9,6 +9,8 @@
 
 #pragma once
 
+#include <limits>
+
 #include "./enable_if.hpp"
 #include "./equal.hpp"
 #include "./is_integral.hpp"
