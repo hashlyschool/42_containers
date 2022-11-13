@@ -15,7 +15,7 @@
 #include <typeinfo>
 #include <cstddef>
 
-#ifdef __linux__
+#ifdef __linux___
 static class nullptr_t
 {
 	public:
@@ -31,7 +31,7 @@ static class nullptr_t
 
 } u_nullptr = {};
 #else
-	typedef nullptr_t u_nullptr;
+	typedef std::nullptr_t u_nullptr;
 #endif
 
 
