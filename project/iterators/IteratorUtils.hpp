@@ -157,8 +157,8 @@ template <typename T>
 struct	mapNode
 {
 	private:
-	bool _unused;
 	#ifdef __linux__
+	bool _unused;
 	int _unused_for_linux;
 	#endif
 
