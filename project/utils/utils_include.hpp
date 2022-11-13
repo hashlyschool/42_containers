@@ -11,6 +11,7 @@
 
 #include <limits>
 #include <stdexcept>
+#include <memory>
 
 #include "./enable_if.hpp"
 #include "./equal.hpp"
