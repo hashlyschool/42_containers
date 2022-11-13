@@ -32,7 +32,6 @@ static class nullptr_t
 } u_nullptr = {};
 #else
 	#define u_nullptr nullptr
-	#define std::uninitialized_copy uninitialized_copy
 #endif
 
 
