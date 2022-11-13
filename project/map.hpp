@@ -478,7 +478,7 @@ private:
 template <class Key, class T, class Compare, class Alloc>
 const typename map<Key, T, Compare, Alloc>::size_type
 map<Key, T, Compare, Alloc>::_max_size =
-	std::numeric_limits<difference_type>::max() / sizeof(node_type) *2 ;
+	std::numeric_limits<difference_type>::max() / sizeof(node_type) * 2;
 
 template<class Key, class T, class Compare, class Alloc>
 bool	operator==(const map<Key, T, Compare, Alloc> &lhs, const map<Key, T, Compare, Alloc> &rhs)
