@@ -1,3 +1,9 @@
 [submodule "mli42 containers tester"]
-	path = project/mli42_containers_test
+	path = tests/mli42_containers_test
 	url = https://github.com/mli42/containers_test.git
+
+[submodule "devineepet containers unit-tester"]
+	path = tests/unit-test
+	url = https://github.com/divinepet/ft_containers-unit-test.git
+
+
