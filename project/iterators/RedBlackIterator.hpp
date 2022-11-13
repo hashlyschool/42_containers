@@ -11,6 +11,7 @@
 # define MAP_ITE_CLASS_HPP
 
 #include "../utils/utils_include.hpp"
+#include "../iterators/IteratorUtils.hpp"
 
 namespace ft {
 
