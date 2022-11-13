@@ -15,207 +15,117 @@
 # include "./vector.hpp"
 
 /// @brief custom namespace for school project's
-
 namespace ft
 {
-	template <class T, class Container = ft::vector<T> > class stack
-	{
-		public:
 
-			/*
-			** The first template parameter (T)
-			*/
-			typedef T	value_type;
+template <class T, class Container = ft::vector<T> >
+class stack
+{
+	public:
+		typedef T									value_type;
+		typedef Container							container_type;
+		typedef typename Container::size_type		size_type;
+		typedef value_type&							reference;
+		typedef const value_type&					const_reference;
 
-			/*
-			** The second template parameter (container)
-			** It's the type of underlying container object.
-			*/
-			typedef Container container_type;
+	protected:
+		container_type	_container;
+	public:
 
-			/*
-			** The size type (usually size_t)
-			*/
-			typedef size_t	size_type;
+		explicit stack(const container_type &c = container_type())
+		:
+			_container(c)
+		{}
 
-			/*
-			** Default constructor.
-			** Construct an empty stack container adaptor object.
-			**
-			** @param Container object, is the type of the
-			** underlying container type.
-			*/
-			explicit stack (const container_type& ctnr = container_type())
-			:
-				ct(ctnr)
-			{}
+		stack(const stack &other)
+		:
+			_container(other._container)
+		{}
 
-			/*
-			** @brief Destroy the container object.
-			** Detroy all elements in the container.
-			** Use the destructor of the underlying containter object.
-			*/
-			~stack()
-			{}
+		virtual ~stack()
+		{}
 
-			/*
-			** @brief Call member "empty()" of the underlying
-			** container object.
-			**
-			** @return true if the container is empty, otherwise
-			** false.
-			*/
-			bool empty() const { return (this->ct.empty()); }
+		bool	empty() const
+		{
+			return (this->_container.empty());
+		}
 
-			/*
-			** @brief Call member "size()" of the underlying
-			** container object.
-			**
-			** @return the size of the container. (Number of elements
-			** in it).
-			*/
-			size_type size() const { return (this->ct.size()); }
+		size_type	size() const
+		{
+			return (this->_container.size());
+		}
 
-			/*
-			** @brief Give a reference to the last
-			** element inserted in the container.
-			** Call member "back()" of the underlying container
-			** object.
-			**
-			** @return a reference to the top element in the stack.
-			*/
-			value_type& top() { return (this->ct.back()); }
+		value_type&	top()
+		{
+			return (this->_container.back());
+		}
 
-			/*
-			** @brief Give a constant reference to the last
-			** element inserted in the container.
-			** Call member "back()" of the underlying container
-			** object.
-			**
-			** @return a constant reference to the top element in the stack.
-			*/
-			const value_type& top() const { return (this->ct.back()); }
+		const value_type&	top() const
+		{
+			return (this->_container.back());
+		}
 
-			/*
-			** @brief insert a new element at the top of the
-			** stack. The element is a copy of value parameter.
-			** Call member "push_back()" of the underlying container
-			** object.
-			**
-			** @param val the value to insert.
-			*/
-			void push (const value_type& val) { this->ct.push_back(val); }
+		void	push(const value_type& val)
+		{
+			this->_container.push_back(val);
+		}
 
-			/*
-			** @brief Remove the element on the top of the stack.
-			** The element removed the last inserted on the stack.
-			** Call the member "pop_back()" of the underlying container
-			** object.
-			*/
-			void pop() { this->ct.pop_back(); }
+		void	pop()
+		{
+			this->_container.pop_back();
+		}
 
-			/*
-			** @brief Declarations of prototypes for the
-			** non members functions that needs to access
-			** the protected variable.
-			*/
+		// /// @brief maybe delete???
+		// stack& operator=(const stack& other)
+		// {
+		// 	this->_container = other._container;
+		// 	return (*this);
+		// }
 
-			template <class Tn, class ContainerN>
-				friend bool operator== (const ft::stack<Tn, ContainerN>& lhs, const ft::stack<Tn, ContainerN>& rhs);
+		template <class A, class Cont>
+		friend bool operator== (const ft::stack<A,Cont>& lhs, const ft::stack<A,Cont>& rhs);
 
-			template <class Tn, class ContainerN>
-				friend bool operator!= (const ft::stack<Tn, ContainerN>& lhs, const ft::stack<Tn, ContainerN>& rhs);
+		template <class A, class Cont>
+		friend bool operator!= (const ft::stack<A,Cont>& lhs, const ft::stack<A,Cont>& rhs);
 
-			template <class Tn, class ContainerN>
-				friend bool operator< (const ft::stack<Tn, ContainerN>& lhs, const ft::stack<Tn, ContainerN>& rhs);
+		template <class A, class Cont>
+		friend bool operator<  (const ft::stack<A,Cont>& lhs, const ft::stack<A,Cont>& rhs);
 
-			template <class Tn, class ContainerN>
-				friend bool operator<= (const ft::stack<Tn, ContainerN>& lhs, const ft::stack<Tn, ContainerN>& rhs);
+		template <class A, class Cont>
+		friend bool operator<= (const ft::stack<A,Cont>& lhs, const ft::stack<A,Cont>& rhs);
 
-			template <class Tn, class ContainerN>
-				friend bool operator> (const ft::stack<Tn, ContainerN>& lhs, const ft::stack<Tn, ContainerN>& rhs);
+		template <class A, class Cont>
+		friend bool operator>  (const ft::stack<A,Cont>& lhs, const ft::stack<A,Cont>& rhs);
 
-			template <class Tn, class ContainerN>
-				friend bool operator>= (const ft::stack<Tn, ContainerN>& lhs, const ft::stack<Tn, ContainerN>& rhs);
+		template <class A, class Cont>
+		friend bool operator>= (const ft::stack<A,Cont>& lhs, const ft::stack<A,Cont>& rhs);
 
-		protected:
-			container_type ct;
-	};
+};
 
-	// Each of the operator call the same operator of the
-	// underlying container objects.
+template <class T, class Container>
+bool operator== (const ft::stack<T, Container>& lhs, const ft::stack<T, Container>& rhs)
+{ return (lhs._container == rhs._container); }
 
-    /*
-    ** @brief Compare stack container to know
-    ** if they are different. Equivalent to !(lsh == rhs).
-    **
-    ** @param lhs stack to compare with "rhs".
-    ** @param rhs stack for comparison of "lhs".
-    ** @return true if they are different, false otherwise.
-    */
-	template <class T, class Container>
-		bool operator== (const ft::stack<T, Container>& lhs, const ft::stack<T, Container>& rhs)
-		{ return (lhs.ct == rhs.ct); }
+template <class T, class Container>
+bool operator!= (const ft::stack<T, Container>& lhs, const ft::stack<T, Container>& rhs)
+{ return (lhs._container != rhs._container); }
 
-    /*
-    ** @brief Compare stack container to know
-    ** if they are different. Equivalent to !(lsh == rhs).
-    **
-    ** @param lhs stack to compare with "rhs".
-    ** @param rhs stack for comparison of "lhs".
-    ** @return true if they are different, false otherwise.
-    */
-	template <class T, class Container>
-		bool operator!= (const ft::stack<T, Container>& lhs, const ft::stack<T, Container>& rhs)
-		{ return (lhs.ct != rhs.ct); }
+template <class T, class Container>
+bool operator< (const ft::stack<T, Container>& lhs, const ft::stack<T, Container>& rhs)
+{ return (lhs._container < rhs._container); }
 
-    /*
-    ** @brief Compare stack container to know
-    ** if "lhs" elements are less than "rhs".
-    **
-    ** @param lhs stack to compare with "rhs".
-    ** @param rhs stack for comparison of "lhs".
-    ** @return true if "lhs" is less, false otherwise.
-    */
-	template <class T, class Container>
-		bool operator< (const ft::stack<T, Container>& lhs, const ft::stack<T, Container>& rhs)
-		{ return (lhs.ct < rhs.ct); }
+template <class T, class Container>
+bool operator<= (const ft::stack<T, Container>& lhs, const ft::stack<T, Container>& rhs)
+{ return (lhs._container <= rhs._container); }
 
-    /*
-    ** @brief Compare stack container to know
-    ** if "lhs" elements are less or equal than "rhs".
-    **
-    ** @param lhs stack to compare with "rhs".
-    ** @param rhs stack for comparison of "lhs".
-    ** @return true if "lhs" is less of equal, false otherwise.
-    */
-	template <class T, class Container>
-		bool operator<= (const ft::stack<T, Container>& lhs, const ft::stack<T, Container>& rhs)
-		{ return (lhs.ct <= rhs.ct); }
+template <class T, class Container>
+bool operator> (const ft::stack<T, Container>& lhs, const ft::stack<T, Container>& rhs)
+{ return (lhs._container > rhs._container); }
 
-    /*
-    ** @brief Compare stack container to know
-    ** if "lhs" elements are superior than "rhs".
-    **
-    ** @param lhs stack to compare with "rhs".
-    ** @param rhs stack for comparison of "lhs".
-    ** @return true if "lhs" is superior, false otherwise.
-    */
-	template <class T, class Container>
-		bool operator> (const ft::stack<T, Container>& lhs, const ft::stack<T, Container>& rhs)
-		{ return (lhs.ct > rhs.ct); }
+template <class T, class Container>
+bool operator>= (const ft::stack<T, Container>& lhs, const ft::stack<T, Container>& rhs)
+{ return (lhs._container >= rhs._container); }
 
-    /*
-    ** @brief Compare stack container to know
-    ** if "lhs" elements are superior or equal than "rhs".
-    **
-    ** @param lhs stack to compare with "rhs".
-    ** @param rhs stack for comparison of "lhs".
-    ** @return true if "lhs" is superior or equal, false otherwise.
-    */
-	template <class T, class Container>
-		bool operator>= (const ft::stack<T, Container>& lhs, const ft::stack<T, Container>& rhs)
-		{ return (lhs.ct >= rhs.ct); }
-}
+} // namespace ft
 
 #endif
