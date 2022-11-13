@@ -15,7 +15,7 @@
 #include <typeinfo>
 #include <cstddef>
 
-#ifdef __linux___
+#ifdef __linux__
 static class nullptr_t
 {
 	public:
