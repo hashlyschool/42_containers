@@ -158,8 +158,8 @@ struct	mapNode
 {
 	private:
 		bool _unused;
-		int _unused_for_linux;
 	#ifdef __linux__
+		int _unused_for_linux;
 	#endif
 
 	public:
