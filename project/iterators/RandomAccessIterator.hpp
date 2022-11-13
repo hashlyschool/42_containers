@@ -20,14 +20,13 @@ class RandomAccessIterator
 {
 	public:
 		typedef typename ft::iterator_traits<ft::Iterator<ft::random_access_iterator_tag, T> >::iterator_category	iterator_category;
-		// typedef typename ft::Iterator<ft::random_access_iterator_tag, T>::iterator_category	iterator_category;
 
 		typedef typename ft::iterator_traits<ft::Iterator<ft::random_access_iterator_tag, T> >::value_type	value_type;
 
-		typedef typename ft::Iterator<ft::random_access_iterator_tag, T>::difference_type	difference_type;
+		typedef typename ft::iterator_traits<ft::Iterator<ft::random_access_iterator_tag, T> >::difference_type	difference_type;
 
-		typedef typename ft::Iterator<ft::random_access_iterator_tag, T>::pointer	pointer;
-		typedef typename ft::Iterator<ft::random_access_iterator_tag, T>::reference	reference;
+		typedef typename ft::iterator_traits<ft::Iterator<ft::random_access_iterator_tag, T> >::pointer	pointer;
+		typedef typename ft::iterator_traits<ft::Iterator<ft::random_access_iterator_tag, T> >::reference	reference;
 
 		RandomAccessIterator(void) : _elem(u_nullptr) {}
 
