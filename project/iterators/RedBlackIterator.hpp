@@ -10,6 +10,8 @@
 #ifndef MAP_ITE_CLASS_HPP
 # define MAP_ITE_CLASS_HPP
 
+#include "../utils/utils_include.hpp"
+
 namespace ft {
 
 template <typename T, typename node_type>
@@ -46,7 +48,7 @@ class RedBlackIterator : ft::Iterator<ft::bidirectional_iterator_tag, T>
 		operator RedBlackIterator<const T, node_type>(void) const {
 			return RedBlackIterator<const T, node_type>(this->_node);
 		}
-		
+
 		template <class, class, class, class>
 		friend class map;
 
