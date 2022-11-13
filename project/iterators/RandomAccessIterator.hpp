@@ -25,8 +25,8 @@ class RandomAccessIterator : ft::Iterator<ft::random_access_iterator_tag, T>
 
 		typedef typename ft::Iterator<ft::random_access_iterator_tag, T>::difference_type	difference_type;
 
-		typedef T*	pointer;
-		typedef T&	reference;
+		typedef typename ft::Iterator<ft::random_access_iterator_tag, T>::pointer	pointer;
+		typedef typename ft::Iterator<ft::random_access_iterator_tag, T>::reference	reference;
 
 		RandomAccessIterator(void) : _elem(u_nullptr) {}
 
