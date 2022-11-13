@@ -15,7 +15,7 @@
 #include <typeinfo>
 #include <cstddef>
 
-#ifdef __linux__
+// #ifdef __linux__
 static class nullptr_t
 {
 	public:
@@ -30,9 +30,9 @@ static class nullptr_t
 		void operator&() const;
 
 } u_nullptr = {};
-#else
-	#define nullptr_t u_nullptr;
-#endif
+// #else
+// 	#define nullptr_t u_nullptr;
+// #endif
 
 
 namespace ft
