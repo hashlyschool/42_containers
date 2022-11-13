@@ -31,7 +31,7 @@ static class nullptr_t
 
 } u_nullptr = {};
 #else
-	typedef typename std::nullptr u_nullptr;
+	typedef nullptr u_nullptr;
 #endif
 
 
