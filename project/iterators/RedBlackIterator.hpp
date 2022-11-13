@@ -24,11 +24,14 @@ class RedBlackIterator : ft::Iterator<ft::bidirectional_iterator_tag, T>
 
 	public:
 
-		typedef ft::bidirectional_iterator_tag iterator_category;
-		typedef T						value_type;
-		typedef ptrdiff_t				difference_type;
-		typedef value_type&				reference;
-		typedef value_type*				pointer;
+		typedef typename ft::iterator_traits<ft::Iterator<ft::bidirectional_iterator_tag, T> >::iterator_category	iterator_category;
+
+		typedef typename ft::iterator_traits<ft::Iterator<ft::bidirectional_iterator_tag, T> >::value_type	value_type;
+
+		typedef typename ft::iterator_traits<ft::Iterator<ft::bidirectional_iterator_tag, T> >::difference_type	difference_type;
+
+		typedef typename ft::iterator_traits<ft::Iterator<ft::bidirectional_iterator_tag, T> >::pointer	pointer;
+		typedef typename ft::iterator_traits<ft::Iterator<ft::bidirectional_iterator_tag, T> >::reference	reference;
 
 		RedBlackIterator(void);
 		RedBlackIterator(const RedBlackIterator &src);

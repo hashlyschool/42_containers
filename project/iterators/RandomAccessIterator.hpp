@@ -16,7 +16,7 @@ namespace ft
 {
 
 template <typename T>
-class RandomAccessIterator
+class RandomAccessIterator  : ft::Iterator<ft::random_access_iterator_tag, T>
 {
 	public:
 		typedef typename ft::iterator_traits<ft::Iterator<ft::random_access_iterator_tag, T> >::iterator_category	iterator_category;
