@@ -12,6 +12,7 @@
 # define FT_ITERATOR_UTILS_HPP
 
 #include <memory>
+#include <cstdlib>
 #include <typeinfo>
 #include <cstddef>
 
