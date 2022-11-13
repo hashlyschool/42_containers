@@ -156,10 +156,10 @@ size_t	itlen(Ite first, Ite last) {
 template <typename T>
 struct	mapNode
 {
-	#ifdef __linux__
 	private:
 		bool _unused;
 		int _unused_for_linux;
+	#ifdef __linux__
 	#endif
 
 	public:
