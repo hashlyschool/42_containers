@@ -31,7 +31,7 @@ static class nullptr_t
 
 } u_nullptr = {};
 #else
-	#define u_nullptr nullptr_t;
+	#define u_nullptr nullptr_t
 #endif
 
 
