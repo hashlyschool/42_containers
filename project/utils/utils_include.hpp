@@ -12,9 +12,9 @@
 #include <limits>
 #include <stdexcept>
 
-#include "./IteratorUtils.hpp"
 #include "./enable_if.hpp"
 #include "./equal.hpp"
 #include "./is_integral.hpp"
 #include "./less.hpp"
 #include "./pair.hpp"
+#include "./compare.hpp"

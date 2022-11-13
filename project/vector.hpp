@@ -9,9 +9,9 @@
 #ifndef FT_VECTOR_HPP
 # define FT_VECTOR_HPP
 
+#include "./utils/utils_include.hpp"
 #include "./iterators/RandomAccessIterator.hpp"
 #include "./iterators/ReverseIterator.hpp"
-#include "./utils/utils_include.hpp"
 
 namespace ft {
 
