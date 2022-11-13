@@ -48,4 +48,16 @@ typename ft::iterator_traits<InputIterator>::difference_type
 	return (rtn);
 }
 
+template <class Ite>
+size_t	itlen(Ite first, Ite last) {
+	size_t	i = 0;
+
+	while (first != last)
+	{
+		++first;
+		++i;
+	}
+	return (i);
+}
+
 } // namespace ft

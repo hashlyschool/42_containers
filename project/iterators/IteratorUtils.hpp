@@ -71,18 +71,6 @@ class bidirectional_iterator : ft::Iterator<ft::bidirectional_iterator_tag, T>
 		pointer _elem;
 };
 
-template <class Ite>
-size_t	itlen(Ite first, Ite last) {
-	size_t	i = 0;
-
-	while (first != last)
-	{
-		++first;
-		++i;
-	}
-	return (i);
-}
-
 template <typename T>
 struct	mapNode
 {
