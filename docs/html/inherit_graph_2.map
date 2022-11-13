@@ -1,4 +1,5 @@
 <map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
-<area shape="rect" id="node1" href="$classft_1_1Iterator.html" title=" " alt="" coords="5,5,205,47"/>
-<area shape="rect" id="node2" href="$classft_1_1bidirectional__iterator.html" title=" " alt="" coords="253,13,467,39"/>
+<area shape="rect" id="node1" href="$classft_1_1Iterator.html" title=" " alt="" coords="5,35,205,76"/>
+<area shape="rect" id="node2" href="$classft_1_1RedBlackIterator.html" title=" " alt="" coords="286,5,434,47"/>
+<area shape="rect" id="node3" href="$classft_1_1bidirectional__iterator.html" title=" " alt="" coords="253,71,467,98"/>
 </map>

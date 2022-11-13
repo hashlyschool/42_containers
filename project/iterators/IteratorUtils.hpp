@@ -15,6 +15,7 @@
 #include <typeinfo>
 #include <cstddef>
 
+#ifdef __linux__
 static class nullptr_t
 {
 	public:
@@ -29,6 +30,10 @@ static class nullptr_t
 		void operator&() const;
 
 } u_nullptr = {};
+#else
+	typedef nullptr_t u_nullptr
+#endif
+
 
 namespace ft
 {
@@ -153,7 +158,9 @@ struct	mapNode
 {
 	private:
 	bool _unused;
+	#ifdef __linux__
 	int _unused_for_linux;
+	#endif
 
 	public:
 	T			data;

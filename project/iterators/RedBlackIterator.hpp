@@ -13,7 +13,7 @@
 namespace ft {
 
 template <typename T, typename node_type>
-class RedBlackIterator
+class RedBlackIterator : ft::Iterator<ft::bidirectional_iterator_tag, T>
 {
 	protected:
 		node_type						*_node;
@@ -46,9 +46,12 @@ class RedBlackIterator
 		operator RedBlackIterator<const T, node_type>(void) const {
 			return RedBlackIterator<const T, node_type>(this->_node);
 		}
-
+		
 		template <class, class, class, class>
 		friend class map;
+
+		template <class, class, class>
+		friend class set;
 
 		template <class, class>
 		friend class RedBlackIterator;

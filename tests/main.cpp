@@ -11,10 +11,12 @@
 
 #include "../project/stack.hpp"
 #include "../project/vector.hpp"
+#include "../project/set.hpp"
 #include <stack>
 #include <iostream>
 #include <vector>
 #include <map>
+#include <set>
 
 /*!
  * @brief function for testing custom stack
@@ -115,5 +117,9 @@ int	main()
 	const_iter = iter;
 	//не должно работать
 	// iter = const_iter;
+
+	// std::set<int> const st;
+	// std::set<int>::iterator it = st.begin(); // <-- no error, actually ! set allows for const_iterator => iterator conversion
+
 	return (0);
 }

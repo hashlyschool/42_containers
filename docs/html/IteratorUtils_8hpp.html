@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>42_containers: Файл /home/inikituk/Work/42_containers/project/iterators/IteratorUtils.hpp</title>
+<title>42_containers: Файл /home/ilya/School/git/42_containers/project/iterators/IteratorUtils.hpp</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,28 +86,32 @@ $(function() {
 <p>файл вспомогательных функций В файле <a class="el" href="IteratorUtils_8hpp.html" title="файл вспомогательных функций В файле IteratorUtils.hpp находятся вспомогательные функции для реализац...">IteratorUtils.hpp</a> находятся вспомогательные функции для реализации итераторов  
 <a href="#details">Подробнее...</a></p>
 <div class="textblock"><code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;typeinfo&gt;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Граф включаемых заголовочных файлов для IteratorUtils.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="IteratorUtils_8hpp__incl.png" border="0" usemap="#a_2home_2inikituk_2Work_242__containers_2project_2iterators_2IteratorUtils_8hpp" alt=""/></div>
-<map name="a_2home_2inikituk_2Work_242__containers_2project_2iterators_2IteratorUtils_8hpp" id="a_2home_2inikituk_2Work_242__containers_2project_2iterators_2IteratorUtils_8hpp">
-<area shape="rect" title="файл вспомогательных функций В файле IteratorUtils.hpp находятся вспомогательные функции для реализац..." alt="" coords="5,5,196,61"/>
-<area shape="rect" title=" " alt="" coords="13,109,90,136"/>
-<area shape="rect" title=" " alt="" coords="115,109,185,136"/>
+<div class="center"><img src="IteratorUtils_8hpp__incl.png" border="0" usemap="#a_2home_2ilya_2School_2git_242__containers_2project_2iterators_2IteratorUtils_8hpp" alt=""/></div>
+<map name="a_2home_2ilya_2School_2git_242__containers_2project_2iterators_2IteratorUtils_8hpp" id="a_2home_2ilya_2School_2git_242__containers_2project_2iterators_2IteratorUtils_8hpp">
+<area shape="rect" title="файл вспомогательных функций В файле IteratorUtils.hpp находятся вспомогательные функции для реализац..." alt="" coords="50,5,241,61"/>
+<area shape="rect" title=" " alt="" coords="5,109,83,136"/>
+<area shape="rect" title=" " alt="" coords="107,109,183,136"/>
+<area shape="rect" title=" " alt="" coords="207,109,278,136"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 Граф файлов, в которые включается этот файл:</div>
 <div class="dyncontent">
-<div class="center"><img src="IteratorUtils_8hpp__dep__incl.png" border="0" usemap="#a_2home_2inikituk_2Work_242__containers_2project_2iterators_2IteratorUtils_8hppdep" alt=""/></div>
-<map name="a_2home_2inikituk_2Work_242__containers_2project_2iterators_2IteratorUtils_8hppdep" id="a_2home_2inikituk_2Work_242__containers_2project_2iterators_2IteratorUtils_8hppdep">
-<area shape="rect" title="файл вспомогательных функций В файле IteratorUtils.hpp находятся вспомогательные функции для реализац..." alt="" coords="169,5,359,61"/>
-<area shape="rect" href="RandomAccessIterator_8hpp.html" title="реализация RandomAccessIterator." alt="" coords="5,109,264,165"/>
-<area shape="rect" href="ReverseIterator_8hpp.html" title="реализация reverse_iterator." alt="" coords="288,109,501,165"/>
-<area shape="rect" href="vector_8hpp_source.html" title=" " alt="" coords="181,213,347,269"/>
-<area shape="rect" href="stack_8hpp_source.html" title=" " alt="" coords="121,317,287,373"/>
-<area shape="rect" href="main_8cpp.html" title="file for testing custom containers" alt="" coords="223,421,305,448"/>
+<div class="center"><img src="IteratorUtils_8hpp__dep__incl.png" border="0" usemap="#a_2home_2ilya_2School_2git_242__containers_2project_2iterators_2IteratorUtils_8hppdep" alt=""/></div>
+<map name="a_2home_2ilya_2School_2git_242__containers_2project_2iterators_2IteratorUtils_8hppdep" id="a_2home_2ilya_2School_2git_242__containers_2project_2iterators_2IteratorUtils_8hppdep">
+<area shape="rect" title="файл вспомогательных функций В файле IteratorUtils.hpp находятся вспомогательные функции для реализац..." alt="" coords="173,5,364,61"/>
+<area shape="rect" href="map_8hpp.html" title=" " alt="" coords="5,213,172,269"/>
+<area shape="rect" href="set_8hpp.html" title="custom set" alt="" coords="215,213,381,269"/>
+<area shape="rect" href="RandomAccessIterator_8hpp.html" title="реализация RandomAccessIterator." alt="" coords="378,109,637,165"/>
+<area shape="rect" href="ReverseIterator_8hpp.html" title="реализация reverse_iterator." alt="" coords="90,109,303,165"/>
+<area shape="rect" href="main_8cpp.html" title="file for testing custom containers" alt="" coords="378,421,461,448"/>
+<area shape="rect" href="vector_8hpp_source.html" title=" " alt="" coords="415,213,581,269"/>
+<area shape="rect" href="stack_8hpp_source.html" title=" " alt="" coords="336,317,503,373"/>
 </map>
 </div>
 </div>
@@ -115,8 +119,6 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Классы</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>nullptr_t</b></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structft_1_1random__access__iterator__tag.html">ft::random_access_iterator_tag</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structft_1_1bidirectional__iterator__tag.html">ft::bidirectional_iterator_tag</a></td></tr>
@@ -130,6 +132,8 @@ $(function() {
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classft_1_1iterator__traits_3_01const_01T_01_5_01_4.html">ft::iterator_traits&lt; const T * &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classft_1_1bidirectional__iterator.html">ft::bidirectional_iterator&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structft_1_1mapNode.html">ft::mapNode&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -156,6 +160,14 @@ template&lt;class InputIterator1 , class InputIterator2 , class Compare &gt; </t
 template&lt;class Ite &gt; </td></tr>
 <tr class="memitem:a0a3e3bef15fac0f28cad96cab4d40d86"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ft::itlen</b> (Ite first, Ite last)</td></tr>
 <tr class="separator:a0a3e3bef15fac0f28cad96cab4d40d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63b631e468e3655dcd5eb1e311655ee3"><td class="memTemplParams" colspan="2"><a id="a63b631e468e3655dcd5eb1e311655ee3"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a63b631e468e3655dcd5eb1e311655ee3"><td class="memTemplItemLeft" align="right" valign="top">mapNode&lt; T &gt; *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ft::farRight</b> (mapNode&lt; T &gt; *node)</td></tr>
+<tr class="separator:a63b631e468e3655dcd5eb1e311655ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8f5e3f9770be328eb1d7ef99b605a61"><td class="memTemplParams" colspan="2"><a id="ab8f5e3f9770be328eb1d7ef99b605a61"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab8f5e3f9770be328eb1d7ef99b605a61"><td class="memTemplItemLeft" align="right" valign="top">mapNode&lt; T &gt; *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ft::farLeft</b> (mapNode&lt; T &gt; *node)</td></tr>
+<tr class="separator:ab8f5e3f9770be328eb1d7ef99b605a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>файл вспомогательных функций В файле <a class="el" href="IteratorUtils_8hpp.html" title="файл вспомогательных функций В файле IteratorUtils.hpp находятся вспомогательные функции для реализац...">IteratorUtils.hpp</a> находятся вспомогательные функции для реализации итераторов </p>

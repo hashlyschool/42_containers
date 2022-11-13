@@ -10,6 +10,7 @@
 #pragma once
 
 #include <limits>
+#include <stdexcept>
 
 #include "./enable_if.hpp"
 #include "./equal.hpp"

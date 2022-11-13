@@ -1,8 +1,10 @@
-<map id="/home/inikituk/Work/42_containers/project/iterators/IteratorUtils.hpp" name="/home/inikituk/Work/42_containers/project/iterators/IteratorUtils.hpp">
-<area shape="rect" id="node1" title="файл вспомогательных функций В файле IteratorUtils.hpp находятся вспомогательные функции для реализац..." alt="" coords="169,5,359,61"/>
-<area shape="rect" id="node2" href="$RandomAccessIterator_8hpp.html" title="реализация RandomAccessIterator." alt="" coords="5,109,264,165"/>
-<area shape="rect" id="node6" href="$ReverseIterator_8hpp.html" title="реализация reverse_iterator." alt="" coords="288,109,501,165"/>
-<area shape="rect" id="node3" href="$vector_8hpp_source.html" title=" " alt="" coords="181,213,347,269"/>
-<area shape="rect" id="node4" href="$stack_8hpp_source.html" title=" " alt="" coords="121,317,287,373"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="file for testing custom containers" alt="" coords="223,421,305,448"/>
+<map id="/home/ilya/School/git/42_containers/project/iterators/IteratorUtils.hpp" name="/home/ilya/School/git/42_containers/project/iterators/IteratorUtils.hpp">
+<area shape="rect" id="node1" title="файл вспомогательных функций В файле IteratorUtils.hpp находятся вспомогательные функции для реализац..." alt="" coords="173,5,364,61"/>
+<area shape="rect" id="node2" href="$map_8hpp.html" title=" " alt="" coords="5,213,172,269"/>
+<area shape="rect" id="node3" href="$set_8hpp.html" title="custom set" alt="" coords="215,213,381,269"/>
+<area shape="rect" id="node5" href="$RandomAccessIterator_8hpp.html" title="реализация RandomAccessIterator." alt="" coords="378,109,637,165"/>
+<area shape="rect" id="node8" href="$ReverseIterator_8hpp.html" title="реализация reverse_iterator." alt="" coords="90,109,303,165"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="file for testing custom containers" alt="" coords="378,421,461,448"/>
+<area shape="rect" id="node6" href="$vector_8hpp_source.html" title=" " alt="" coords="415,213,581,269"/>
+<area shape="rect" id="node7" href="$stack_8hpp_source.html" title=" " alt="" coords="336,317,503,373"/>
 </map>

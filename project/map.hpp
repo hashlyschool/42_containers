@@ -202,7 +202,8 @@ public:
 		return this->insert(val).first;
 	}
 
-	template <class Ite> void	insert(Ite first, Ite last)
+	template <class Ite> void
+	insert(Ite first, Ite last)
 	{
 		while (first != last)
 			this->insert(*first++);
@@ -378,11 +379,6 @@ private:
 	void	_create_data_it(Ite first, Ite last)
 	{
 		this->insert(first, last);
-	}
-
-	void	_create_data(size_type size, const value_type &val = value_type())
-	{
-		(void)size; (void)val;
 	}
 
 	void	_cpy_content(map &src)
