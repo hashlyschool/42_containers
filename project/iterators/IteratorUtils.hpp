@@ -15,6 +15,7 @@
 #include <cstdlib>
 #include <typeinfo>
 #include <cstddef>
+#include <iterator>
 
 #ifdef __linux__
 static class nullptr_t
