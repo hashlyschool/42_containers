@@ -410,7 +410,7 @@ public:
 		if (_size + count > _capacity) {
 			size_type new_cap = _capacity * 2 >= _size + count ? _capacity * 2 : _size + count;
 			pointer new_arr = _allocator.allocate(new_cap);
-			std::uninitialized_copy(begin(), position, iterator(new_arr));
+			std::uninitialized_copy(this->begin(), position, iterator(new_arr));
 			try {
 				for (size_type i = 0; i < static_cast<size_type>(count); i++, first++)
 					_allocator.construct(new_arr + start + i, *first);
@@ -421,7 +421,7 @@ public:
 				_allocator.deallocate(new_arr, new_cap);
 				throw;
 			}
-			std::uninitialized_copy(position, end(), iterator(new_arr + start + count));
+			std::uninitialized_copy(position, this->end(), iterator(new_arr + start + count));
 			for (size_type i = 0; i < _size; i++)
 				_allocator.destroy(_first + i);
 			_allocator.deallocate(_first, _capacity);
