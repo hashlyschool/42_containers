@@ -319,9 +319,9 @@ public:
 		if (_size == _capacity) {
 			_capacity = _capacity * 2 + (_capacity == 0);
 			pointer newarr = _allocator.allocate(_capacity);
-			std::uninitialized_copy(begin(), position, iterator(newarr));
+			std::uninitialized_copy(this->begin(), position, iterator(newarr));
 			_allocator.construct(newarr + start, val);
-			std::uninitialized_copy(position, end(), iterator(newarr + start + 1));
+			std::uninitialized_copy(position, this->end(), iterator(newarr + start + 1));
 			for (size_type i = 0; i < _size; ++i)
 				_allocator.destroy(_first + i);
 			if (_size)
